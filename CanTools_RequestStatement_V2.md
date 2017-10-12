@@ -12,8 +12,6 @@
 #### 2.1模型选择
  ![image](https://raw.githubusercontent.com/LeeYuxuan1104/HelloWorld/master/Pics/RS_Pics/2.png)
 </br> 图2-1 快速原型模型
-
-
 ##### 利用快速原型模型的好处:
 - 能够尽快实现功能原型，便于使用者的进一步的使用。
 - 便于开发者以及使用者的不断沟通，以便于进一步地实现功能以供开发者的进一步开发以及用户的进一步确认需求
@@ -23,21 +21,20 @@
 ##### 2.2.1 Android App功能结构设计
 ![image](https://raw.githubusercontent.com/LeeYuxuan1104/HelloWorld/master/Pics/RS_Pics/3.png)
 </br>图2-2-1 Android App业务框图
-
 ###### 1.其中，收发器的功能主要包括2个:
 - 接受数据
 - 发送数据
 </br>
-###### 2.信息接收的格式问题 [标志位][ID][DLC][DATA]</br>
-- [标志位] </br>
-  - t:标准帧——其后的ID位数为3位;</br>
-  - T:扩展帧——其后的ID位数为8位;</br>
-- [ID] : ID编号，由硬件设备传输</br>
-  - 当t时，位数为3位(000~FFF)</br>
-  - 当T时，位数为8位(00000000~FFFFFFFF)</br>
-- [DLC]：传输的DATA数据的长度；
-- [DATA]：</br>
-  - 传输的数据的实际内容；</br>
+###### 2.信息接收的格式问题 [标志位][ID][DLC][DATA]
+- [标志位] 
+  - t:标准帧——其后的ID位数为3位
+  - T:扩展帧——其后的ID位数为8位
+- [ID] : ID编号，由硬件设备传输
+  - 当t时，位数为3位(000~FFF)
+  - 当T时，位数为8位(00000000~FFFFFFFF)
+- [DLC]：传输的DATA数据的长度
+- [DATA]：
+  - 传输的数据的实际内容
   - 最多八个字节   
 ######  3.知识点补充:
 ==例如==:0x  XX  XX  XX  XX  XX  XX  XX 	 XX
