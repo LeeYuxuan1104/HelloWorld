@@ -56,10 +56,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		btBtn = (Button) findViewById(R.id.btBtn);
 
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-		// 实例接收客户端传过来的数据线程
-		thread = new AcceptThread();
-		// 线程开始
-		thread.start();
 		if (mBluetoothAdapter == null) {
 			btdevice.setText("本设备不支持蓝牙");
 		} else {
@@ -85,6 +81,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				btstate.setText("蓝牙已关闭");
 				btBtn.setText("开启蓝牙");
 			}
+			// 实例接收客户端传过来的数据线程
+			thread = new AcceptThread();
+			// 线程开始
+			thread.start();
 		}
 	}
 
@@ -157,9 +157,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			if (os != null) {
 				// 需要发送的信息
 				String text = "成功发送信息";
+				Toast.makeText(MainActivity.this, "1", Toast.LENGTH_LONG).show();
 				// 以utf-8的格式发送出去
 				os.write(text.getBytes("UTF-8"));
-				Toast.makeText(MainActivity.this, "os="+os.toString(), Toast.LENGTH_LONG).show();
 			}
 			// 吐司一下，告诉用户发送成功
 			Toast.makeText(this, "发送信息成功，请查收", Toast.LENGTH_SHORT).show();
@@ -184,7 +184,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		}
 	};
 
-	public class AcceptThread extends Thread {
+	private class AcceptThread extends Thread {
 		private BluetoothServerSocket serverSocket;// 服务端接口
 		private BluetoothSocket socket;// 获取到客户端的接口
 		private InputStream is;// 获取到输入流
@@ -203,31 +203,25 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
 		public void run() {
 			try {
+				// 接收其客户端的接口
+				socket = serverSocket.accept();
+				// 获取到输入流
+				is = socket.getInputStream();
+				// 获取到输出流
+				os = socket.getOutputStream();
+
+				// 无线循环来接收数据
 				while (true) {
-				
-					
-//				System.out.println("xx");
-					Log.i("MyLog", "xxxxx");
-					// 接收其客户端的接口
-					socket = serverSocket.accept();
-					// 获取到输入流
-					is = socket.getInputStream();
-					// 获取到输出流
-					os = socket.getOutputStream();
-					
-					// 无线循环来接收数据
-					while (true) {
-						// 创建一个128字节的缓冲
-						byte[] buffer = new byte[128];
-						// 每次读取128字节，并保存其读取的角标
-						int count = is.read(buffer);
-						// 创建Message类，向handler发送数据
-						Message msg = new Message();
-						// 发送一个String的数据，让他向上转型为obj类型
-						msg.obj = new String(buffer, 0, count, "utf-8");
-						// 发送数据
-						handler.sendMessage(msg);
-					}
+					// 创建一个128字节的缓冲
+					byte[] buffer = new byte[128];
+					// 每次读取128字节，并保存其读取的角标
+					int count = is.read(buffer);
+					// 创建Message类，向handler发送数据
+					Message msg = new Message();
+					// 发送一个String的数据，让他向上转型为obj类型
+					msg.obj = new String(buffer, 0, count, "utf-8");
+					// 发送数据
+					handler.sendMessage(msg);
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
