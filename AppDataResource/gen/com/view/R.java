@@ -72,6 +72,10 @@ public final class R {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
         public static final int hello_world=0x7f060002;
+        public static final int tip_dialog_done=0x7f060004;
+        public static final int tip_dialog_wait=0x7f060003;
+        public static final int tip_fail=0x7f060006;
+        public static final int tip_success=0x7f060005;
     }
     public static final class style {
         /** 
