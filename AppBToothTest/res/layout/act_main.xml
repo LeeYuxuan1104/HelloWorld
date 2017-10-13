@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnTest"
+        android:id="@+id/btnSwitch"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -67,7 +67,7 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:layout_below="@id/layTop"
-	    android:layout_above="@id/btnTest"
+	    android:layout_above="@id/btnSwitch"
 	    android:layout_marginLeft="5sp"
 	    android:layout_marginRight="5sp"
 	    >

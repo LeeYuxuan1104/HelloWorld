@@ -41,7 +41,7 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 	private SimpleAdapter	 mSimpleAdapter;
 	//	02.控件信息的内容;
 	private TextView vDevice,vBTooth,vBack,vTopic;
-	private Button	 vTest;
+	private Button	 vSwitch;
 	private Builder  vBuilder;
 	private ListView vlvDevices; 
 	//	03.参数信息的内容;
@@ -61,7 +61,7 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 	private void initView(){
 		vDevice	  =(TextView) findViewById(R.id.tvDevice);
 		vBTooth	  =(TextView) findViewById(R.id.tvBTooth);
-		vTest	  =(Button) findViewById(R.id.btnTest);
+		vSwitch	  =(Button) findViewById(R.id.btnSwitch);
 		vBack	  =(TextView) findViewById(R.id.btnBack);
 		vTopic	  =(TextView) findViewById(R.id.tvTopic);
 		vlvDevices=(ListView) findViewById(R.id.lvDevices);
@@ -70,6 +70,7 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 		mContext		  = VmainActivity.this;
 		mBlueTooth		  = new MBlueTooth();
 		vBack.setOnClickListener(this);
+		vSwitch.setOnClickListener(this);
 		vlvDevices.setOnItemClickListener(this);
 		vTopic.setText("蓝牙——数据传输工具");
 		//	检测设备信息;
@@ -102,14 +103,14 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 			vBuilder.create();
 			vBuilder.show();
 			break;
-		case R.id.btnTest:
+		case R.id.btnSwitch:
 
 			if(mBlueTooth.isBlueToothOpen()){
 				mBlueTooth.setBlueToothClose();
 				sBTooth = "蓝牙关闭";
 				sSwitch	= "蓝牙开启";
 				vBTooth.setText(sBTooth);
-				vTest.setText(sSwitch);
+				vSwitch.setText(sSwitch);
 				showDevices(1);
 			}else{
 				mIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -145,7 +146,7 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 			sSwitch	="蓝牙关闭";
 		}
 		vBTooth.setText(sBTooth);
-		vTest.setText(sSwitch);		
+		vSwitch.setText(sSwitch);		
 	}
 	//	02.显示设备信息;
 	private void showDevices(int n){
