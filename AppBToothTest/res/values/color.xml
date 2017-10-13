@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="divide">#909090</color>
+    
+    <color name="software_01_01_unselected">#00cd00</color>
+    <color name="software_01_02_unselected">#FF83FA</color>
+    <color name="software_01_03_unselected">#EE5C42</color>
+    <color name="software_01_selected">#00ff7f</color>
+    <color name="software_02_01_unselected">#98FB98</color>
+    <color name="software_02_02_unselected">#EE9A49</color>
+    <color name="software_02_03_unselected">#996600</color>
+	<color name="software_02_selected">#CAE1FF</color>
+	
+	<color name="software_04_01_unselected">#B0171f</color>
+	<color name="software_04_selected">#ff0000</color>
+	
+	
+	<color name="software_03_unselected">#ffffff</color>
+	<color name="software_03_selected">#FF8247</color>
+
+</resources>
