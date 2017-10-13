@@ -188,26 +188,23 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 		
 		@Override
 		public void run() {
-			Log.i("MyLog", "bluetoothAdapter="+bluetoothAdapter);
 			if (bluetoothAdapter.isDiscovering()) {
 				bluetoothAdapter.cancelDiscovery();
 			}
 			try {
 				
 		        if(mmSocket!=null){		        	 
-		        	Log.i("MyLog", "mmSocket="+mmSocket);
 		        	mmSocket.connect();
-		        	
 		        	// 获取到输出流，向外写数据
 					os = mmSocket.getOutputStream();
-					Log.i("MyLog", "os="+os);
 		        }
 		        if(os!=null){
+		        	Log.i("MyLog", "连接成功!");
 		        	// 需要发送的信息
 					String text = "t12380011121314151617\r";
 					// 以utf-8的格式发送出去
 					os.write(text.getBytes("UTF-8"));
-		        }
+		        }else Log.i("MyLog", "未连接成功!");
 	        } catch (IOException connectException) {
 	            try {
 	            	if(os!=null){
@@ -281,6 +278,12 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 					msg.obj = new String(buffer, 0, count, "utf-8");
 					// 发送数据
 					handler.sendMessage(msg);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            } catch (IOException e) {
 	                break;
 	            }
@@ -297,9 +300,8 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 	@Override
 	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 		String address=listDevices.get(position).get("address");
-		Toast.makeText(mContext, "address:\n"+address, Toast.LENGTH_LONG).show();
+		Toast.makeText(mContext, "已发送", Toast.LENGTH_SHORT).show();
 		ClientThread clientThread=new ClientThread(mBlueTooth.getmBluetoothAdapter(), address);
 		clientThread.start();
-		
 	}
 }

@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnClickListener{
+public class VmainActivity extends Activity implements OnClickListener{
 	private TextView vTopic, vBack;
 	private Button vRecive, vTrans, vLoad, vSet;
 	private ListView vListView;
@@ -40,7 +40,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	}
 
 	private void initEvent() {
-		mContext=MainActivity.this;
+		mContext=VmainActivity.this;
 		vTopic.setText("CanTool 工具应用App");
 		vBack.setOnClickListener(this);
 		vRecive.setOnClickListener(this);

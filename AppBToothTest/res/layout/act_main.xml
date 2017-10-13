@@ -26,8 +26,9 @@
     <LinearLayout
         android:id="@+id/layTop"
         android:layout_width="fill_parent"
-        android:layout_height="30sp"
+        android:layout_height="35sp"
         android:layout_below="@id/separator1"
+        android:gravity="center"
         android:orientation="horizontal" >
 
         <TextView
