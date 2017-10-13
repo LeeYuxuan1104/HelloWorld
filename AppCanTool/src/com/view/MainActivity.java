@@ -1,9 +1,11 @@
 package com.view;
 
 import com.example.appcantool.R;
+import com.model.ReceiveData;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -16,7 +18,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	private TextView vTopic, vBack;
 	private Button vRecive, vTrans, vLoad, vSet;
 	private ListView vListView;
-
+	private Context	mContext;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	}
 
 	private void initEvent() {
+		mContext=MainActivity.this;
 		vTopic.setText("CanTool 工具应用App");
 		vBack.setOnClickListener(this);
 		vRecive.setOnClickListener(this);
@@ -53,10 +56,11 @@ public class MainActivity extends Activity implements OnClickListener{
 		case R.id.btnReceive:
 			String rSwitch=vRecive.getText().toString();
 			// 创建启动Service的Intent
-			final Intent intent = new Intent();
+
+			Intent intent = new Intent();
+			intent.setClass(mContext, ReceiveData.class);
 			if(rSwitch.equals("接收")){				
 				// 为Intent设置Action属性
-				intent.setAction("org.service.FIRST_SERVICE");
 				startService(intent);
 				vRecive.setText("关闭");
 			}else{				
