@@ -11,9 +11,13 @@ import android.bluetooth.BluetoothDevice;
 public class MBlueTooth {
 	private BluetoothAdapter mBluetoothAdapter;
 	private ArrayList<Map<String, String>> listDevices;
+	private ArrayList<String> listInfos;
 	
 	public MBlueTooth() {
+		//	蓝牙适配器的初始化;
 		this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		//	数据列表信息初始化;
+		this.listInfos=new ArrayList<String>();
 	}
 	public BluetoothAdapter getmBluetoothAdapter() {
 		return mBluetoothAdapter;
@@ -54,6 +58,14 @@ public class MBlueTooth {
 		listDevices.clear();
 		return listDevices;
 	}
-	
+	//	获取设备接收信息列表;
+	public ArrayList<String> getListInfos(){
+		
+		return listInfos;
+	}
+	public ArrayList<String> getListInfosClear(){
+		listInfos.clear();
+		return listInfos;
+	}
 	
 }

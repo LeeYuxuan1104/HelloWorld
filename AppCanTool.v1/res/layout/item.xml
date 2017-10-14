@@ -10,7 +10,8 @@
         android:layout_height="30sp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10sp"
-        android:textSize="20sp"
+        android:textSize="15sp"
+        android:gravity="center"
         android:textStyle="bold"
         android:textColor="#000000"
         />
@@ -31,8 +32,9 @@
         android:layout_height="30sp"
         android:layout_marginRight="10sp"
         android:layout_alignParentRight="true"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
+        android:gravity="center"
         android:textColor="#000000"
         />
 </RelativeLayout>
