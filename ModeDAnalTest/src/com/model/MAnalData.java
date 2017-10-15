@@ -3,12 +3,12 @@ package com.model;
 import java.util.ArrayList;
 
 public class MAnalData {
-	private String importData;
-	private char[] roomData;
+	private String iData;
+	private char[] datas;
 	private int    size;
 	private int    index;
 	//	属性参数;
-	private char FLAG;
+	private char   FLAG;
 	private String ID;
 	private int	   DLC;
 	private ArrayList<char[]> DATA;
@@ -20,23 +20,24 @@ public class MAnalData {
 	}
 	
 	//	进行数据的加载;
-	public String getImportData() {
-		return importData;
+	public String getiData() {
+		return iData;
 	}
-	
+
 	//	设置数据的容器;
-	public void setImportData(String importData) {
-		this.importData = importData;
+	public void setiData(String iData) {
+		this.iData = iData;
 	}
 
-	public char[] getRoomData() {
-		roomData=importData.toCharArray();
-		size=roomData.length-1;
-		return roomData;
+	
+	public char[] getDatas() {
+		datas=iData.toCharArray();
+		size=datas.length-1;
+		return datas;
 	}
 
-	public void setRoomData(char[] roomData) {
-		this.roomData = roomData;
+	public void setDatas(char[] datas) {
+		this.datas = datas;
 	}
 	//	取出长度;
 	public int getSize() {
@@ -51,7 +52,7 @@ public class MAnalData {
 	}
 	//	下一个数;
 	public char next(){
-		char data=roomData[index];
+		char data=datas[index];
 		index++;
 		return data;
 	}
