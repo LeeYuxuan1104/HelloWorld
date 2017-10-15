@@ -83,6 +83,7 @@ public class ReceiveData extends Service{
 						// 每次读取128字节，并保存其读取的角标
 						int count = is.read(buffer);
 						// 创建Message类，向handler发送数据
+						@SuppressWarnings("unused")
 						Message msg = new Message();
 						// 发送一个String的数据，让他向上转型为obj类型
 						String result=new String(buffer, 0, count, "utf-8");

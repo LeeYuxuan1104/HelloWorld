@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import com.controller.CAnalData;
 import com.example.appcantool.R;
 import com.model.MBlueTooth;
 
@@ -24,6 +25,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -38,11 +41,13 @@ public class VmainActivity extends Activity implements OnClickListener{
 	
 	//
 	private TextView vTopic, vBack,vDeceive,vBTooth;
+	@SuppressWarnings("unused")
 	private Button vSwitch, vTrans, vLoad, vSet;
 	private ListView vlvDevices,vlvInfos;
 	//	
 	private MBlueTooth	 mBlueTooth;
 	private AcceptThread acceptThread;
+	private CAnalData 	 mCAnalData;
 	//
 	private String 	 sDevice,sBTooth,sSwitch;
 	private ArrayList<Map<String, String>> listDevices,listInfos;
@@ -60,6 +65,28 @@ public class VmainActivity extends Activity implements OnClickListener{
 	protected void onResume() {
 		checkDevice();
 		showInfos();
+		vlvInfos.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View view, int position,
+					long id) {
+				String info=listInfos.get(position).get("content");
+				mCAnalData=new CAnalData(info);
+				mCAnalData.computeData();
+				char 	FLAG= mCAnalData.getFLAG();
+				String  ID	= mCAnalData.getID();
+				int 	DLC	= mCAnalData.getDLC();
+				ArrayList<char[]> lists=mCAnalData.getDATA();
+				int 	nSize=lists.size();
+				String	tmp = "";
+				for(int i=0;i<nSize;i++){
+					String c=String.valueOf(lists.get(i));
+					tmp+="ox"+c+" ";
+				}
+				Toast.makeText(mContext, "["+FLAG+"]["+ID+"]["+DLC+"]["+tmp+"]", Toast.LENGTH_SHORT).show();
+			}
+		});
+		
 		super.onResume();
 	}
 	private void initView() {
