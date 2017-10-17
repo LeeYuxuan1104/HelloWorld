@@ -18,7 +18,7 @@ public class MConfig {
 			"create table can_message (" +
 			"_id integer primary key ," +
 			"bo_flag varchar(32) not null," +
-			"id long not null," +
+			"id integer ," +
 			"message_name varchar(100) not null," +
 			"dlc integer ," +
 			"node_name varchar(32) not null" +
@@ -35,7 +35,7 @@ public class MConfig {
 			"rank varchar(32)," +
 			"unit varchar(32)," +
 			"node_name varchar(255)," +
-			"id long" +
+			"id integer" +
 			")";
 ///////
 	private String sql_insert01=

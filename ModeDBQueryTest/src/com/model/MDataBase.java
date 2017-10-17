@@ -1,4 +1,4 @@
-package com.mode;
+package com.model;
 
 import java.util.ArrayList;
 
