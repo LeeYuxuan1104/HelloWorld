@@ -14,7 +14,9 @@ public class MSignal {
 	private int sindex;	  //01.起始位置;
 	private int bcount;	  //02.位数总和;
 	private int direction;//03.方向;
-	
+	//	获取纠正值得方式;
+	private double avalue;//01.A值;
+	private double bvalue;//02.B值;
 	
 	
 	public MSignal(int _id, String sg_flag, String signal_name, String way,
@@ -30,6 +32,7 @@ public class MSignal {
 		this.node_name = node_name;
 		this.id = id;
 		dealwithway();
+		dealwithjudge();
 	}
 	private void dealwithway(){
 		//	拆解路径方式;
@@ -39,12 +42,27 @@ public class MSignal {
 		bcount	  =Integer.parseInt(way.substring(way.indexOf("|")+1,way.indexOf("@")));
 		//	方向;
 		String dir=way.substring(way.indexOf("@")+1, way.length());
+		//	摩托罗拉算法;
 		if(dir.equals("0+"))
 			direction=0;
+		//	因特尔算法;
 		else direction=1;
 	}
 	
+	private void dealwithjudge(){
+		//	拆解纠偏值;
+		//	A值;
+		avalue= Double.parseDouble(judge.substring(0, judge.indexOf(","))) ;
+		//	B值;
+		bvalue= Double.parseDouble(judge.substring(judge.indexOf(",")+1,judge.length() )) ;
+	}
 	
+	public double getAvalue() {
+		return avalue;
+	}
+	public double getBvalue() {
+		return bvalue;
+	}
 	public int getSindex() {
 		return sindex;
 	}
@@ -56,7 +74,6 @@ public class MSignal {
 	}
 	public MSignal() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public int get_id() {
 		return _id;

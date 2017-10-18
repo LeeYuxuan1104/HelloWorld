@@ -4,45 +4,62 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 
 import com.model.MData;
+import com.model.MInfo;
 import com.model.MMessage;
 import com.model.MSignal;
-import com.model.MUnit;
 import com.tool.MDBHelper;
 
 public class CTransData extends MData{
-	//	十进制的ID编号;
-	private int	  ID10;  
-	private int	  size;
+	private MData 				mData;
+	private MDBHelper 			mdbHelper;
+
+	//	16进制数据包;
 	private ArrayList<char[]>   datas16;
 	private Map<Integer, String> datas2;
 	//	信号信息列表;
 	private ArrayList<MSignal>  listSignals;
 	
-	
-	
-	private MDBHelper mdbHelper;
-	private String sql;
-	private MMessage  mMessage;
-	public CTransData(Context context,MData	mData) {
+
+	public CTransData(Context context) {
 		//	数据库控制类;
 		this.mdbHelper	=   new  MDBHelper(context);
+	}
+	
+	public MData getmData() {
+		return mData;
+	}
+
+	public void setmData(MData mData) {
+		this.mData = mData;
+	}
+
+	public void compute(){
+
 		//	ID编号;
 		String 	  ID16	=	mData.getID();
 		//	ID 16进制转化为10进制;
-		this.ID10		=	Integer.parseInt(ID16, 16);
+		int 	  ID10	=	Integer.parseInt(ID16, 16);
 		datas16			=	mData.getDATA();
 		this.datas2		=	create8list();
+	
+		for(int i=0;i<8;i++){
+			for(int j=0;j<8;j++){
+				int index=8*i+(7-j);
+				String s=datas2.get(index);
+				Log.i("MyLog", s);
+			}
+		}
+		
 		this.listSignals=	queryInfofromSignal(ID10);
 		destory8Matrix();
-		
 	}
 	//	进行破阵法;
 	private void destory8Matrix(){
-		ArrayList<String> list=new ArrayList<String>();
 		//	破阵之法;
 		/*
 		 *对其中的每一行的信息值进行重新的翻转;
@@ -94,8 +111,19 @@ public class CTransData extends MData{
 			default:
 				break;
 			}
-			String s=Integer.valueOf(tmp, 2).toString();
-			Log.i("MyLog", "10进制-->"+s);
+			int v10=Integer.valueOf(tmp, 2);
+			
+			double Avalue=mSignal.getAvalue();
+			//	位数;
+			double Bvalue=mSignal.getBvalue();
+			
+			double V10=Avalue*v10+Bvalue;
+			String unit=mSignal.getUnit();
+			/////	Info数据表中的内容;
+			long time=System.currentTimeMillis();
+			MInfo mInfo=new MInfo(mSignal.getSignal_name(), V10, unit, mSignal.getNode_name(), mSignal.getId(), time);
+			Log.i("MyLog", "name="+mInfo.getName()+"|value="+mInfo.getValue()+"|unit="+mInfo.getUnit()+"|node_name="+mInfo.getNote()+"|id="+mInfo.getId()+"|time="+mInfo.getTime());
+			
 		}
 	}
 	
@@ -104,7 +132,9 @@ public class CTransData extends MData{
 	
 	//	查询message大表中的id信息;
 	private ArrayList<MSignal> queryInfofromSignal(int id10){
-		ArrayList<MSignal>  listSignals=new ArrayList<MSignal>();
+		ArrayList<MSignal>  listSignals	=new ArrayList<MSignal>();
+		MMessage  			mMessage	=null;
+		String				sql;
 		//	大类的sql语句;
 		sql="select * from can_message where id="+id10;
 		//	结果集;
@@ -127,7 +157,7 @@ public class CTransData extends MData{
 		return listSignals;
 	}
 	//	形成8阵图(16进制转化为2进制);
-	//	重载;
+	@SuppressLint("UseSparseArrays")
 	private Map<Integer, String> create8list(){
 		Map<Integer, String> datas2=new HashMap<Integer, String>();
 		//	每行是
@@ -144,23 +174,7 @@ public class CTransData extends MData{
 		}
 		return datas2;
 	}
-	
-	
-	
-//	private ArrayList<String[]> create8list(){
-//		ArrayList<String[]> datas2=new ArrayList<String[]>();
-//		//	每行是
-//		for(char[] chs:datas16){
-//			String tmp  =chs[0]+""+chs[1];
-//			String tmp2 =hexString2binaryString(tmp);
-//			String[] tmps=new String[8];
-//			for(int i=0;i<8;i++){
-//				tmps[i]=tmp2.substring(i, i+1);
-//			}
-//			datas2.add(tmps);
-//		}
-//		return datas2;
-//	}
+	//	将16进制数转化为2进制数的方式;	
 	private String hexString2binaryString(String hexString) {
 		if (hexString == null || hexString.length() % 2 != 0)
 			return null;

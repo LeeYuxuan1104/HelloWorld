@@ -5,19 +5,21 @@ import java.util.ArrayList;
 import com.model.MData;
 
 public class CAnalData extends MData{
-	private char[] 	  datas;
+//	private char[] 	  datas;
 	private ArrayList<char[]> list;
 	private MData	  mData;
+	private String    iData;
+	
 	//	控制类的构造方法;
 	public CAnalData(String iData) {
-		setiData(iData);
-		datas=getDatas();
+		this.iData=iData;
+//		setiData(iData);
 		list=new ArrayList<char[]>();
 		//	进行数据的截取;
-		computeData();
-		
+//		computeData();	
 	}
 
+	
 	public MData getmData() {
 		return mData;
 	}
@@ -28,10 +30,13 @@ public class CAnalData extends MData{
 	}
 
 
-	private void computeData(){
+	public void computeData(){
+		mData.setiData(iData);
+		char[] 	  datas=mData.getDatas();
+		
 		char FLAG=datas[0];
 		//	设置ID编号
-		setFLAG(FLAG);
+		mData.setFLAG(FLAG);
 		String temp="";
 		int    size=0;
 		//	位数的选择;
@@ -41,8 +46,8 @@ public class CAnalData extends MData{
 			for(int i=1;i<4;i++){
 				temp+=""+datas[i];
 			}
-			setDLC(Integer.parseInt(datas[4]+""));
-			size=getDLC();
+			mData.setDLC(Integer.parseInt(datas[4]+""));
+			size=mData.getDLC();
 			
 			for(int i=0;i<size;i++){
 				int index=0;
@@ -59,8 +64,8 @@ public class CAnalData extends MData{
 			for(int i=1;i<9;i++){
 				temp+=""+datas[i];
 			}
-			setDLC(Integer.parseInt(datas[9]+""));
-			size=getDLC();
+			mData.setDLC(Integer.parseInt(datas[9]+""));
+			size=mData.getDLC();
 			for(int i=0;i<size;i++){
 				int index=0;
 				char[] data=new char[2];
@@ -81,7 +86,7 @@ public class CAnalData extends MData{
 			list.add(c);
 			dis--;
 		}
-		setDATA(list);
-		setID(temp);
+		mData.setDATA(list);
+		mData.setID(temp);
 	}
 }
