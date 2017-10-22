@@ -14,35 +14,35 @@ public class MBlueTooth {
 	private ArrayList<String> listInfos;
 	
 	public MBlueTooth() {
-		//	è“ç‰™é€‚é…å™¨çš„åˆå§‹åŒ–;
+		//	À¶ÑÀÊÊÅäÆ÷µÄ³õÊ¼»¯;
 		this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-		//	æ•°æ®åˆ—è¡¨ä¿¡æ¯åˆå§‹åŒ–;
+		//	Êı¾İÁĞ±íĞÅÏ¢³õÊ¼»¯;
 		this.listInfos=new ArrayList<String>();
 	}
 	public BluetoothAdapter getmBluetoothAdapter() {
 		return mBluetoothAdapter;
 	}
 	
-	//	å…·å¤‡è“ç‰™è®¾å¤‡;
+	//	¾ß±¸À¶ÑÀÉè±¸;
 	public boolean hasBlueToothDevice(){
 		if(mBluetoothAdapter==null) 
 			return false ;
 		else return true;
 	}
-	//	è“ç‰™è®¾å¤‡å¼€å…³;
+	//	À¶ÑÀÉè±¸¿ª¹Ø;
 	public boolean isBlueToothOpen(){
 		if(mBluetoothAdapter.isEnabled())
 			return true;
 		else return false;
 	}
-	//	ä½¿è“ç‰™è®¾å¤‡å…³é—­;
+	//	Ê¹À¶ÑÀÉè±¸¹Ø±Õ;
 	public void setBlueToothClose(){
 		mBluetoothAdapter.disable();
 	}
-	//	è·å–è®¾å¤‡ä¿¡æ¯åˆ—è¡¨;
+	//	»ñÈ¡Éè±¸ĞÅÏ¢ÁĞ±í;
 	public ArrayList<Map<String, String>> getListDevices() {
 		listDevices = new ArrayList<Map<String,String>>();
-		// è·å–æ‰€æœ‰å·²ç»ç»‘å®šçš„è“ç‰™è®¾å¤‡
+		// »ñÈ¡ËùÓĞÒÑ¾­°ó¶¨µÄÀ¶ÑÀÉè±¸
 		Set<BluetoothDevice> devices = mBluetoothAdapter.getBondedDevices();
 		if (devices.size() > 0) {
 			for (BluetoothDevice device : devices) {
@@ -58,7 +58,7 @@ public class MBlueTooth {
 		listDevices.clear();
 		return listDevices;
 	}
-	//	è·å–è®¾å¤‡æ¥æ”¶ä¿¡æ¯åˆ—è¡¨;
+	//	»ñÈ¡Éè±¸½ÓÊÕĞÅÏ¢ÁĞ±í;
 	public ArrayList<String> getListInfos(){
 		
 		return listInfos;

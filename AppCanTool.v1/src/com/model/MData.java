@@ -7,24 +7,24 @@ public class MData {
 	private char[] datas;
 	private int    size;
 	private int    index;
-	//	å±æ€§å‚æ•°;
+	//	ÊôĞÔ²ÎÊı;
 	private char   FLAG;
 	private String ID;
 	private int	   DLC;
 	private ArrayList<char[]> DATA;
 	
 	
-	//	æ•°æ®åˆ†è§£;
+	//	Êı¾İ·Ö½â;
 	public MData() {
 		
 	}
 	
-	//	è¿›è¡Œæ•°æ®çš„åŠ è½½;
+	//	½øĞĞÊı¾İµÄ¼ÓÔØ;
 	public String getiData() {
 		return iData;
 	}
 
-	//	è®¾ç½®æ•°æ®çš„å®¹å™¨;
+	//	ÉèÖÃÊı¾İµÄÈİÆ÷;
 	public void setiData(String iData) {
 		this.iData = iData;
 	}
@@ -39,18 +39,18 @@ public class MData {
 	public void setDatas(char[] datas) {
 		this.datas = datas;
 	}
-	//	å–å‡ºé•¿åº¦;
+	//	È¡³ö³¤¶È;
 	public int getSize() {
 		return size;
 	}
-	//	æ˜¯å¦æœ‰ä¸‹ä¸€é¡¹;
+	//	ÊÇ·ñÓĞÏÂÒ»Ïî;
 	public boolean hasNext(){
 		if(index<size)
 			return true;
 		else 
 			return false;
 	}
-	//	ä¸‹ä¸€ä¸ªæ•°;
+	//	ÏÂÒ»¸öÊı;
 	public char next(){
 		char data=datas[index];
 		index++;
