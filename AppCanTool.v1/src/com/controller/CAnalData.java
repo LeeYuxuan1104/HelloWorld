@@ -7,7 +7,7 @@ import com.model.MData;
 public class CAnalData extends MData{
 	private char[] 	  datas;
 	private ArrayList<char[]> list;
-	//	æ§åˆ¶ç±»çš„æ„é€ æ–¹æ³•;
+	//	¿ØÖÆÀàµÄ¹¹Ôì·½·¨;
 	public CAnalData(String iData) {
 		setiData(iData);
 		datas=getDatas();
@@ -16,13 +16,13 @@ public class CAnalData extends MData{
 	
 	public void computeData(){
 		char FLAG=datas[0];
-		//	è®¾ç½®IDç¼–å·
+		//	ÉèÖÃID±àºÅ
 		setFLAG(FLAG);
 		String temp="";
 		int    size=0;
-		//	ä½æ•°çš„é€‰æ‹©;
+		//	Î»ÊıµÄÑ¡Ôñ;
 		switch (FLAG) {
-		//	æ ‡å‡†ä½;
+		//	±ê×¼Î»;
 		case 't':
 			for(int i=1;i<4;i++){
 				temp+=""+datas[i];
@@ -41,7 +41,7 @@ public class CAnalData extends MData{
 				setDATA(list);
 			}
 			break;
-		//	æ‰©å±•ä½;
+		//	À©Õ¹Î»;
 		case 'T':
 			for(int i=1;i<9;i++){
 				temp+=""+datas[i];
