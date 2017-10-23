@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CanTool手机应用</string>
+    <string name="action_settings">Settings</string>
+    <!-- 底端按钮 -->
+	<string name="act_receive">接收信息</string>
+	<string name="act_received">停止接收</string>
+	<string name="act_show">显示信息</string>
+	<string name="act_send">发送信息</string>
+	<string name="act_manage">管理信息</string>
+	<string name="act_ok">确认</string>
+	<string name="act_no">取消</string>
+	<!-- 顶端按钮 -->
+	<string name="act_back">返回</string>
+	<string name="act_exit">退出</string>
+	<!-- 标题显示 -->
+	<string name="tip_receive">接收</string>
+	<string name="tip_receiving">接收进行..</string>
+	<string name="tip_received">接收中止!!</string>
+	<string name="tip_show">显示</string>
+	<string name="tip_send">发送</string>
+	<string name="tip_manage">管理</string>
+	<string name="tip_exit">退出</string>
+</resources>
