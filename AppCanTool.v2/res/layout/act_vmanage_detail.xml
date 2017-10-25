@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+    <!-- 顶端布局 -->
+
+    <include
+        android:id="@+id/includeTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/act_topbar" />
+
+    <Button
+        android:id="@+id/btnExportInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/act_exportinfo" />
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/btnExportInfo"
+        android:scrollbars="horizontal"
+        android:layout_below="@id/includeTop" >
+
+        <ListView
+            android:id="@+id/lvShow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#000000"
+            android:divider="#000000"
+            tools:ignore="NestedScrolling,ScrollViewSize" />
+
+    </HorizontalScrollView>
+
+</RelativeLayout>

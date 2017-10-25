@@ -2,7 +2,7 @@ package com.model.entity;
 
 import java.util.ArrayList;
 
-public class MEMes extends MEData {
+public class MEMess extends MEData {
 	private int _id;
 	private String time;
 	private String chn;
@@ -13,9 +13,11 @@ public class MEMes extends MEData {
 //	private String datas;
 	private ArrayList<char[]> DATA;
 	private MEData meData;
+	private String intime;
+	private String initdata;
 
 	// 含参数的构造函数;
-	public MEMes(int _id, String time, String name, String dir, MEData meData) {
+	public MEMess(int _id, String time, String name, String dir, MEData meData,String initime,String initdata) {
 		super();
 		this._id = _id;
 		this.time = time;
@@ -26,18 +28,28 @@ public class MEMes extends MEData {
 		this.id = meData.getID();
 		this.dlc = meData.getDLC();
 		this.DATA = meData.getDATA();
+		this.intime=initime;
+		this.initdata=initdata;
 	}
-
-//	public String getDatas() {
-//		return datas;
-//	}
-
-//	public void setDatas(String datas) {
-//		this.datas = datas;
-//	}
 
 	public MEData getMeData() {
 		return meData;
+	}
+
+	public String getIntime() {
+		return intime;
+	}
+
+	public void setIntime(String intime) {
+		this.intime = intime;
+	}
+
+	public String getInitdata() {
+		return initdata;
+	}
+
+	public void setInitdata(String initdata) {
+		this.initdata = initdata;
 	}
 
 	public void setMeData(MEData meData) {
@@ -45,7 +57,7 @@ public class MEMes extends MEData {
 	}
 
 	// 不含参的构造函数;
-	public MEMes() {
+	public MEMess() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

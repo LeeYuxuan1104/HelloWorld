@@ -2,8 +2,10 @@
 <RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:background="#4A708B"
+    >
 
     <ImageView
         android:id="@+id/disclosureImg"
@@ -19,8 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/disclosureImg"
-        android:textColor="#000000"
+        android:textStyle="bold"
         android:textSize="15sp"
-        android:textStyle="bold" />
+        />
 
 </RelativeLayout>

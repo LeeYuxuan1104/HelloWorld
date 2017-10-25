@@ -11,10 +11,15 @@
 	<string name="act_manage">管理信息</string>
 	<string name="act_ok">确认</string>
 	<string name="act_no">取消</string>
-	<string name="act_export">导出</string>
+	<string name="act_exportcan">导出CAN信息</string>
+	<string name="act_exportinfo">导出表信息</string>
+	<string name="act_exportstruction">导出表结构信息</string>
+	<string name="act_format">选择格式</string>
 	<!-- 顶端按钮 -->
 	<string name="act_back">返回</string>
 	<string name="act_exit">退出</string>
+	<string name="act_compress">罗盘</string>
+	<string name="act_line">曲线</string>
 	<!-- 标题显示 -->
 	<string name="tip_receive">接收</string>
 	<string name="tip_receiving">接收进行..</string>
@@ -25,6 +30,8 @@
 	<string name="tip_exit">退出</string>
 	<string name="tip_flush">刷新</string>
 	<string name="tip_delall">清空</string>
+	<string name="tip_detail">详情</string>
+	<string name="tip_export_finished">导出完成</string>
 	<!-- 表单信息 -->
 	<string name="time">Time</string>
 	<string name="chn">Chn</string>

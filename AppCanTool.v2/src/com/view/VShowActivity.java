@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.app.Activity;
 import android.content.Context;
 
@@ -22,7 +23,7 @@ public class VShowActivity extends Activity implements OnClickListener{
 	private SimpleAdapter mAdapter;
 	/*控件的声明*/
 	private TextView vTopic;
-	private Button 	 vBack,vFlush,vDelAll;
+	private Button 	 vBack,vFlush,vDelAll,vCompress,vLine;
 	private ListView vListView;
 	/*参量的声明*/
 	private ArrayList<Map<String, String>> list;
@@ -44,6 +45,10 @@ public class VShowActivity extends Activity implements OnClickListener{
 		
 		vFlush=(Button) findViewById(R.id.btnFlush);
 		vDelAll=(Button) findViewById(R.id.btnDelAll);
+		
+		vCompress=(Button) findViewById(R.id.btnCompress);
+		vLine=(Button) findViewById(R.id.btnLine);
+		
 	}
 	//	初始化方法;
 	private void initEvent(){
@@ -51,10 +56,14 @@ public class VShowActivity extends Activity implements OnClickListener{
 		mContext=VShowActivity.this;
 		vTopic.setText(R.string.tip_show);
 		vBack.setText(R.string.act_back);
+		vCompress.setVisibility(View.VISIBLE);
+		vLine.setVisibility(View.VISIBLE);
 		//	下方按钮添加事件监听;
 		vBack.setOnClickListener(this);
 		vFlush.setOnClickListener(this);
 		vDelAll.setOnClickListener(this);
+		vCompress.setOnClickListener(this);
+		vLine.setOnClickListener(this);
 		//	进行列表;
 		list=new ArrayList<Map<String, String>>();
 		//	进行声明;
@@ -75,6 +84,12 @@ public class VShowActivity extends Activity implements OnClickListener{
 			String sql="delete from mess_info";
 			helper.oper(sql);
 			showData();
+			break;
+		case R.id.btnCompress:
+			Toast.makeText(mContext, "罗盘", Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.btnLine:
+			Toast.makeText(mContext, "曲线", Toast.LENGTH_SHORT).show();
 			break;
 		default:
 			break;

@@ -1,6 +1,6 @@
 package com.model.entity;
 
-public class Element {
+public class MEElement {
 	private String contentText;
 
 	private int level;
@@ -16,7 +16,7 @@ public class Element {
 
 	public static final int TOP_LEVEL = 0;
 	
-	public Element(String contentText, int level, int id, int parendId,
+	public MEElement(String contentText, int level, int id, int parendId,
 			boolean hasChildren, boolean isExpanded) {
 		super();
 		this.contentText = contentText;

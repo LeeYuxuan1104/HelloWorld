@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class MTConfig {
 	private ArrayList<String> listSQlInit;
 
-	//	创建显示界面的内容;
+	//	创建进入的数据;
 	private String sql_messinfo=
 			"create table mess_info (" +
 			"_id integer primary key," +
@@ -15,7 +15,9 @@ public class MTConfig {
 			"name varchar(32)," +
 			"dir varchar(32)," +
 			"dlc integer," +
-			"data varchar(32)" +
+			"data varchar(32)," +
+			"intime varchar(32)," +
+			"initdata varchar(32)" +
 			")";
 	
 	

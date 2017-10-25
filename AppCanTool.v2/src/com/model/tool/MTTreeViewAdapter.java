@@ -3,7 +3,7 @@ package com.model.tool;
 import java.util.ArrayList;
 
 
-import com.model.entity.Element;
+import com.model.entity.MEElement;
 import com.view.R;
 
 import android.view.LayoutInflater;
@@ -17,24 +17,24 @@ import android.widget.TextView;
  * @author carrey
  *
  */
-public class TreeViewAdapter extends BaseAdapter {
-	private ArrayList<Element> elementsData;
-	private ArrayList<Element> elements;
+public class MTTreeViewAdapter extends BaseAdapter {
+	private ArrayList<MEElement> elementsData;
+	private ArrayList<MEElement> elements;
 	private LayoutInflater inflater;
 	private int indentionBase;
 	
-	public TreeViewAdapter(ArrayList<Element> elements, ArrayList<Element> elementsData, LayoutInflater inflater) {
+	public MTTreeViewAdapter(ArrayList<MEElement> elements, ArrayList<MEElement> elementsData, LayoutInflater inflater) {
 		this.elements = elements;
 		this.elementsData = elementsData;
 		this.inflater = inflater;
 		indentionBase = 50;
 	}
 	
-	public ArrayList<Element> getElements() {
+	public ArrayList<MEElement> getElements() {
 		return elements;
 	}
 	
-	public ArrayList<Element> getElementsData() {
+	public ArrayList<MEElement> getElementsData() {
 		return elementsData;
 	}
 	
@@ -65,7 +65,7 @@ public class TreeViewAdapter extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		Element element = elements.get(position);
+		MEElement element = elements.get(position);
 		int level = element.getLevel();
 		holder.disclosureImg.setPadding(
 				indentionBase * (level + 1), 

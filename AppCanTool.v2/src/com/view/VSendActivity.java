@@ -69,7 +69,7 @@ public class VSendActivity extends Activity implements OnClickListener{
 		mDevicesAdapter=new SimpleAdapter(mContext,listDevices , R.layout.act_item, new String[]{"name","address"},new int[]{R.id.count,R.id.content});
 		vSpinner.setAdapter(mDevicesAdapter);
 		listMessages=loadData();
-		mMessagesAdapter=new SimpleAdapter(mContext, listMessages, R.layout.act_item, new String[]{"count","id","content"}, new int[]{R.id.count,R.id.id,R.id.content});
+		mMessagesAdapter=new SimpleAdapter(mContext, listMessages, R.layout.act_item, new String[]{"count","id"}, new int[]{R.id.count,R.id.id});
 		lvMessages.setAdapter(mMessagesAdapter);
 		
 		vSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -126,9 +126,8 @@ public class VSendActivity extends Activity implements OnClickListener{
 			String node_name=items[5];
 
 			Map<String, String> map=new HashMap<String, String>();
-			map.put("count", bo_flag+id);
+			map.put("count", bo_flag+id+" "+message_name+":"+dlc+" "+node_name);
 			map.put("id", id);
-			map.put("content", message_name+" "+dlc+" "+node_name);
 			list.add(map);
 		}
 		return list;
