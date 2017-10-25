@@ -1,27 +1,34 @@
 package com.view;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.model.tool.MTDBHelper;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 
 public class VShowActivity extends Activity implements OnClickListener{
 	/*上下文声明*/
 	private Context	mContext;
-	private Intent	mIntent;
+	private SimpleAdapter mAdapter;
 	/*控件的声明*/
 	private TextView vTopic;
-	private Button 	 vBack,vReceive,vShow,vSend,vManage;
-	private Builder	 vBuilder;
+	private Button 	 vBack,vFlush,vDelAll;
+	private ListView vListView;
 	/*参量的声明*/
-	
+	private ArrayList<Map<String, String>> list;
 	/*定义类声明*/
+	private MTDBHelper helper;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,62 +40,71 @@ public class VShowActivity extends Activity implements OnClickListener{
 	private void initView(){
 		vBack=(Button) findViewById(R.id.btnBack);
 		vTopic=(TextView) findViewById(R.id.tvTopic);
-		vReceive=(Button) findViewById(R.id.btnReceive);
-		vShow=(Button) findViewById(R.id.btnShow);
-		vSend=(Button) findViewById(R.id.btnSend);
-		vManage=(Button) findViewById(R.id.btnManage);
+		vListView=(ListView) findViewById(R.id.lvShow);
+		
+		vFlush=(Button) findViewById(R.id.btnFlush);
+		vDelAll=(Button) findViewById(R.id.btnDelAll);
 	}
 	//	初始化方法;
 	private void initEvent(){
 		//	上下文初始化;
 		mContext=VShowActivity.this;
 		vTopic.setText(R.string.tip_show);
-		
+		vBack.setText(R.string.act_back);
 		//	下方按钮添加事件监听;
 		vBack.setOnClickListener(this);
-		vReceive.setOnClickListener(this);
-		vShow.setOnClickListener(this);
-		vSend.setOnClickListener(this);
-		vManage.setOnClickListener(this);
+		vFlush.setOnClickListener(this);
+		vDelAll.setOnClickListener(this);
+		//	进行列表;
+		list=new ArrayList<Map<String, String>>();
+		//	进行声明;
+		helper=new MTDBHelper(mContext);
+		showData();
 	}
 	@Override
 	public void onClick(View view) {
 		int pId=view.getId();
 		switch (pId) {
 		case R.id.btnBack:
-			vBuilder=new Builder(mContext);
-			vBuilder.setTitle(R.string.tip_exit);
-			vBuilder.setPositiveButton(R.string.act_ok, new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface arg0, int arg1) {
-					finish();
-				}
-			});
-			vBuilder.setNegativeButton(R.string.act_no, null);
-			vBuilder.create();
-			vBuilder.show();
-			break;
-		case R.id.btnReceive:
-			mIntent=new Intent(mContext, VReceiveActivity.class);
-			startActivity(mIntent);
 			finish();
 			break;
-		case R.id.btnShow:
-		
+		case R.id.btnFlush:
+			showData();
 			break;
-		case R.id.btnSend:
-			mIntent=new Intent(mContext, VSendActivity.class);
-			startActivity(mIntent);
-
-			break;
-		case R.id.btnManage:
-			mIntent=new Intent(mContext, VManageActivity.class);
-			startActivity(mIntent);
-
+		case R.id.btnDelAll:
+			String sql="delete from mess_info";
+			helper.oper(sql);
+			showData();
 			break;
 		default:
 			break;
 		}
 	}
+	private void showData(){
+		list=loadData();
+		mAdapter=new SimpleAdapter(mContext, list, R.layout.act_itemtable, new String[]{"time","chn","id","name","dir","dlc","data"}, new int[]{R.id.time,R.id.chn,R.id.id,R.id.name,R.id.dir,R.id.dlc,R.id.data});
+		vListView.setAdapter(mAdapter);
+	}
+	
+	
+	private ArrayList<Map<String, String>> loadData(){
+		ArrayList<Map<String, String>> list=new ArrayList<Map<String,String>>();
+		String sql="select * from mess_info";
+		ArrayList<String[]> datas=helper.query(sql);
+		for(String[] items:datas){
+			Map<String, String> map=new HashMap<String, String>();
+			map.put("time", items[1]);
+			map.put("chn", items[2]);
+			map.put("id", items[3]);
+			map.put("name", items[4]);
+			map.put("dir", items[5]);
+			map.put("dlc", items[6]);
+			map.put("data", items[7]);
+			list.add(map);
+		}
+		
+		return list;
+		
+	}
+	
 }

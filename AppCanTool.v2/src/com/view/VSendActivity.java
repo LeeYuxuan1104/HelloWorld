@@ -1,28 +1,45 @@
 package com.view;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.model.tool.MTBlueTooth;
+import com.model.tool.MTDBHelper;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 
 public class VSendActivity extends Activity implements OnClickListener{
 	/*上下文声明*/
 	private Context	mContext;
-	private Intent	mIntent;
 	/*控件的声明*/
 	private TextView vTopic;
-	private Button 	 vBack,vReceive,vShow,vSend,vManage;
-	private Builder	 vBuilder;
-	
+	private Button 	 vBack;
+	private Spinner  vSpinner;
+	private ListView lvMessages;
+	private SimpleAdapter mDevicesAdapter;
+	private SimpleAdapter mMessagesAdapter;	
 	/*参量的声明*/
-	
+	private ArrayList<Map<String, String>> listDevices;
+	private ArrayList<Map<String, String>> listMessages;
+	private String 	pAddress;
 	/*定义类声明*/
+	private MTBlueTooth mtBlueTooth;
+	private MTDBHelper  mtdbHelper;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,64 +51,88 @@ public class VSendActivity extends Activity implements OnClickListener{
 	private void initView(){
 		vBack=(Button) findViewById(R.id.btnBack);
 		vTopic=(TextView) findViewById(R.id.tvTopic);
-		vReceive=(Button) findViewById(R.id.btnReceive);
-		vShow=(Button) findViewById(R.id.btnShow);
-		vSend=(Button) findViewById(R.id.btnSend);
-		vManage=(Button) findViewById(R.id.btnManage);
+		vSpinner=(Spinner) findViewById(R.id.spDevices);
+		lvMessages=(ListView) findViewById(R.id.lvMessages);
 	}
 	//	初始化方法;
 	private void initEvent(){
 		//	上下文初始化;
 		mContext=VSendActivity.this;
 		vTopic.setText(R.string.tip_send);
-		
+		vBack.setText(R.string.act_back);
 		//	下方按钮添加事件监听;
 		vBack.setOnClickListener(this);
-		vReceive.setOnClickListener(this);
-		vShow.setOnClickListener(this);
-		vSend.setOnClickListener(this);
-		vManage.setOnClickListener(this);
+		mtBlueTooth=new MTBlueTooth();
+		mtdbHelper =new MTDBHelper(mContext);
+		listDevices=mtBlueTooth.getListDevices();
+		//	显示设备的适配器;
+		mDevicesAdapter=new SimpleAdapter(mContext,listDevices , R.layout.act_item, new String[]{"name","address"},new int[]{R.id.count,R.id.content});
+		vSpinner.setAdapter(mDevicesAdapter);
+		listMessages=loadData();
+		mMessagesAdapter=new SimpleAdapter(mContext, listMessages, R.layout.act_item, new String[]{"count","id","content"}, new int[]{R.id.count,R.id.id,R.id.content});
+		lvMessages.setAdapter(mMessagesAdapter);
+		
+		vSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int position, long arg3) {
+				pAddress=listDevices.get(position).get("address");
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		lvMessages.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				Intent intent=new Intent(mContext, VSendDetailActivity.class);
+				Bundle bundle=new Bundle();
+				int nid=Integer.parseInt(listMessages.get(position).get("id"));
+				bundle.putInt("id", nid);
+				bundle.putString("address", pAddress);
+				intent.putExtras(bundle);
+				startActivity(intent);	
+			}
+		});
 	}
 	@Override
 	public void onClick(View view) {
 		int pId=view.getId();
 		switch (pId) {
 		case R.id.btnBack:
-			vBuilder=new Builder(mContext);
-			vBuilder.setTitle(R.string.tip_exit);
-			vBuilder.setPositiveButton(R.string.act_ok, new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface arg0, int arg1) {
-					finish();
-				}
-			});
-			vBuilder.setNegativeButton(R.string.act_no, null);
-			vBuilder.create();
-			vBuilder.show();
-			break;
-		case R.id.btnReceive:
-			mIntent=new Intent(mContext, VReceiveActivity.class);
-			startActivity(mIntent);
-//			finish();
-			break;
-		case R.id.btnShow:
-			mIntent=new Intent(mContext, VShowActivity.class);
-			startActivity(mIntent);
-//			finish();
-			break;
-		case R.id.btnSend:
-		
-			break;
-		case R.id.btnManage:
-			mIntent=new Intent(mContext, VManageActivity.class);
-			startActivity(mIntent);
-//			finish();
+			finish();
 			break;
 		default:
 			break;
 		}
-		
+	}
+	private ArrayList<Map<String, String>> loadData(){
+		ArrayList<Map<String, String>> list=new ArrayList<Map<String,String>>();
+		String sql="select * from can_message";
+		ArrayList<String[]> datas=mtdbHelper.query(sql);
+		for(String[] items:datas){
+			
+			String bo_flag  =items[1];
+			String id	    =items[2];
+			String message_name=items[3];
+			String dlc	    =items[4];
+			String node_name=items[5];
+
+			Map<String, String> map=new HashMap<String, String>();
+			map.put("count", bo_flag+id);
+			map.put("id", id);
+			map.put("content", message_name+" "+dlc+" "+node_name);
+			list.add(map);
+		}
+		return list;
 	}
 
+	
 }

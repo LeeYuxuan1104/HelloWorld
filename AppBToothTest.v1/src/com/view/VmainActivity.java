@@ -57,7 +57,12 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 		initView();
 		initEvent();
 	}
-
+	@Override
+	protected void onResume() {
+		checkDevice();
+		super.onResume();
+	}
+	
 	private void initView(){
 		vDevice	  =(TextView) findViewById(R.id.tvDevice);
 		vBTooth	  =(TextView) findViewById(R.id.tvBTooth);
@@ -79,11 +84,6 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 		//	显示设备信息;
 		showDevices(0);
 		startThread();
-	}
-	@Override
-	protected void onResume() {
-		checkDevice();
-		super.onResume();
 	}
 	
 	@Override
@@ -132,7 +132,6 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 		if(requestCode==0){
 			showDevices(0);
 			startThread();
-			Log.i("MyLog", "acceptThread02="+acceptThread);
 		}
 	}
 	//	本功能自带方法;
@@ -172,7 +171,7 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 		private BluetoothAdapter bluetoothAdapter;
 		private BluetoothDevice selectDevice;
 		private BluetoothSocket mmSocket,tmpSocket;
-	    private String uuid = "ffffffff-ea31-5a0f-0617-ee160033c587";
+	    private String uuid = "00001101-0000-1000-8000-00805F9B34FB";
 	    private OutputStream os;
 	    
 		public ClientThread(BluetoothAdapter bluetoothAdapter,String address) {
@@ -206,7 +205,7 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 		        if(os!=null){
 		        	Log.i("MyLog", "连接成功!");
 		        	// 需要发送的信息
-					String text = "t12380011121314151617\r";
+					String text = "t320880478C2F05A1D29A\r";
 					// 以utf-8的格式发送出去
 					os.write(text.getBytes("UTF-8"));
 		        }else Log.i("MyLog", "未连接成功!");
@@ -230,6 +229,7 @@ public class VmainActivity extends Activity implements OnClickListener,OnItemCli
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
+				Log.i("MyLog", "有误有误");
 			}
 		}
 	}

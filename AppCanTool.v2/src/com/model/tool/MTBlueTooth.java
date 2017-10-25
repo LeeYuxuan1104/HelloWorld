@@ -1,4 +1,4 @@
-package com.model;
+package com.model.tool;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,12 +8,12 @@ import java.util.Set;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 
-public class MBlueTooth {
+public class MTBlueTooth {
 	private BluetoothAdapter mBluetoothAdapter;
 	private ArrayList<Map<String, String>> listDevices;
 	private ArrayList<String> listInfos;
 	
-	public MBlueTooth() {
+	public MTBlueTooth() {
 		//	蓝牙适配器的初始化;
 		this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 		//	数据列表信息初始化;

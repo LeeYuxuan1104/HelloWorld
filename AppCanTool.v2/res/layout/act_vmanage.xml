@@ -13,12 +13,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"        
         layout="@layout/act_topbar" />
-    <!-- 底端的布局 -->
-
-    <include
-        android:id="@+id/includeBottom"
+    <Button 
+        android:id="@+id/btnExport"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        layout="@layout/act_bottombar" />
+        android:text="@string/act_export"
+        />
+	<ListView 
+        android:id="@+id/lvShow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="#000000"
+        android:cacheColorHint="#000000"
+        android:layout_below="@id/includeTop"
+        android:layout_above="@id/btnExport"
+        />
 </RelativeLayout>

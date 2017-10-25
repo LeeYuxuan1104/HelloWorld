@@ -1,13 +1,15 @@
 package com.view;
 
-import com.model.MBlueTooth;
-import com.model.SPHelper;
+import java.util.ArrayList;
+
+import com.model.tool.MTBlueTooth;
 import com.service.ReceiveDataService;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -23,8 +25,9 @@ import android.content.IntentFilter;
 
 public class VReceiveActivity extends Activity implements OnClickListener{
 	/*上下文声明*/
-	private Context			mContext;
-	private Intent			mIntent;
+	private Context				 mContext;
+	private Intent				 mIntent;
+	private ArrayAdapter<String> mAdapter;
 	/*控件的声明*/
 	private TextView 		vTopic,
 					 		vDevice,
@@ -38,16 +41,16 @@ public class VReceiveActivity extends Activity implements OnClickListener{
 	/*参量的声明*/ 
 	private String 	 		sDevice,sBTooth;
 	private int 	 		pCount;
-	private Intent			intentInfo;
+	
 	private String   		pTargetToService="com.from.activity.to.service";
 	private String   		pTargetFromService="com.from.service.to.activity";
-	
+	private ArrayList<String> plist;
 	/*定义类声明*/
-	private MBlueTooth		mBlueTooth;
+	private MTBlueTooth		mBlueTooth;
 	private GetInfoReceiver	getInfoReceiver;
+	private Intent			setIntentInfo;
 	private IntentFilter 	getInfoFilter;
 	//	首选项的类;
-
 	
 	//	01.生命周期——创建;
 	@Override
@@ -67,6 +70,7 @@ public class VReceiveActivity extends Activity implements OnClickListener{
 	}
 	//	初始化控件;
 	private void initView(){
+		//	返回键;
 		vBack=(Button) findViewById(R.id.btnBack);
 		vTopic=(TextView) findViewById(R.id.tvTopic);
 		vReceive=(Button) findViewById(R.id.btnReceive);
@@ -95,14 +99,27 @@ public class VReceiveActivity extends Activity implements OnClickListener{
 		vSend.setOnClickListener(this);
 		vManage.setOnClickListener(this);
 		//	蓝牙设备的初始化;
-		mBlueTooth=new MBlueTooth();
-		//	注册广播信号;
+		mBlueTooth=new MTBlueTooth();
+		/////////////
+		//	注册广播—发送信息;
+		setIntentInfo=new Intent(mContext, ReceiveDataService.class);
+		startService(setIntentInfo);
+		/////////////
+		//	注册广播-接收信号;
 		getInfoReceiver = new GetInfoReceiver();
 		getInfoFilter 	= new IntentFilter();
-
 		getInfoFilter.addAction(pTargetFromService);
 		registerReceiver(getInfoReceiver, getInfoFilter);
 		//	辅助类;
+		//	状态值;
+		vReceiveState.setText(R.string.tip_received);
+		//	动态图标;
+		vLoading.setVisibility(View.INVISIBLE);
+		//	按钮;
+		vReceive.setText(R.string.act_receiving);
+		//	信息列表叠加;
+		plist		=	new ArrayList<String>();
+		showData();
 	}
 	@Override
 	public void onClick(View view) {
@@ -115,7 +132,14 @@ public class VReceiveActivity extends Activity implements OnClickListener{
 				
 				@Override
 				public void onClick(DialogInterface arg0, int arg1) {
-
+					//	接收传递的数据包;
+					if(getInfoReceiver!=null){
+						unregisterReceiver(getInfoReceiver);
+					}
+					//	发送传递的数据包;
+					if(setIntentInfo!=null){
+						stopService(setIntentInfo);
+					}		
 					finish();
 				}
 			});
@@ -124,52 +148,46 @@ public class VReceiveActivity extends Activity implements OnClickListener{
 			vBuilder.show();
 			break;
 		case R.id.btnReceive:
-			if(intentInfo==null){				
-				intentInfo=new Intent(mContext, ReceiveDataService.class);
-				startService(intentInfo);
-//				Intent i=new Intent();
-				intentInfo.putExtra("flag", 1);
-				intentInfo.setAction(pTargetToService);
-				sendBroadcast(intentInfo);
+			
+			if(pCount==0){
+				if(mBlueTooth.isBlueToothOpen()){
+					Intent i=new Intent();
+					Bundle bundle=new Bundle();
+					bundle.putBoolean("flag", true);
+					i.putExtras(bundle);
+					vReceive.setText("停止接收");
+					vReceiveState.setText(R.string.tip_receiving);
+					vLoading.setVisibility(View.VISIBLE);
+					i.setAction(pTargetToService);
+					sendBroadcast(i);
+				}else Toast.makeText(mContext, "请先打开蓝牙按钮",Toast.LENGTH_SHORT).show();
+			}else{	
+				Intent i=new Intent();
+				Bundle bundle=new Bundle();
+				bundle.putBoolean("flag", false);
+				i.putExtras(bundle);
+				vReceive.setText("接收信息");
+				vReceiveState.setText(R.string.tip_received);
+				vLoading.setVisibility(View.INVISIBLE);
+				i.setAction(pTargetToService);
+				sendBroadcast(i);
 			}
-//
-//			if(pCount==0){
-//				if(mBlueTooth.isBlueToothOpen()){
-//					mIntent = new Intent(mContext,ReceiveDataService.class);
-//					vReceive.setText("停止接收");
-//					vReceiveState.setText(R.string.tip_receiving);
-//					vLoading.setVisibility(View.VISIBLE);
-//
-//				}else Toast.makeText(mContext, "请先打开蓝牙按钮",Toast.LENGTH_SHORT).show();
-//				
-//			}else{
-//				if(mIntent!=null){					
-//					stopService(mIntent);
-//					vReceive.setText("接收信息");
-//					vReceiveState.setText(R.string.tip_received);
-//					vLoading.setVisibility(View.INVISIBLE);
-//					Intent intent = new Intent();
-//					
-//					intent.setAction("lovefang.01");//
-//					sendBroadcast(intent);
-//					
-//					pCount=0;
-//				}
-//			}
 
 			break;
 		case R.id.btnShow:
 			mIntent=new Intent(mContext, VShowActivity.class);
 			startActivity(mIntent);
-			finish();
+			
 			break;
 		case R.id.btnSend:
 			mIntent=new Intent(mContext, VSendActivity.class);
 			startActivity(mIntent);
+			
 			break;
 		case R.id.btnManage:
 			mIntent=new Intent(mContext, VManageActivity.class);
 			startActivity(mIntent);
+			
 			break;
 		default:
 			break;
@@ -190,46 +208,37 @@ public class VReceiveActivity extends Activity implements OnClickListener{
 			sBTooth	="蓝牙开启";
 		}
 		vBTooth.setText(sBTooth);
-
-//		//	计数为1;
-//		if(pCount==1){
-//			vReceive.setText(R.string.act_receive);
-//			vReceiveState.setText(R.string.tip_received);
-//			vLoading.setVisibility(View.INVISIBLE);
-//		}
-//		//	计数非1;
-//		else{
-//			vReceive.setText(R.string.act_received);
-//			vReceiveState.setText(R.string.tip_receiving);
-//			vLoading.setVisibility(View.VISIBLE);
-//		}
 	}
 	//	数据进行注册;
 	public class GetInfoReceiver extends BroadcastReceiver{
 		public void onReceive(Context context, Intent intent){
-
-			pCount=(Integer) intent.getExtras().get("count");
-
-			if(pCount==0){
-				vReceive.setText("接收信息");
-				vReceiveState.setText(R.string.tip_received);
-				vLoading.setVisibility(View.INVISIBLE);
-			}else{
-				vReceive.setText("停止接收");
-				vReceiveState.setText(R.string.tip_receiving);
-				vLoading.setVisibility(View.VISIBLE);
-			}
 			
-		}
+			Bundle bundle=intent.getExtras();			
+				pCount=bundle.getInt("count");
+				//	接收信息的内容;
+				if(pCount==0){
+					vReceiveState.setText(R.string.tip_received);
+					vReceive.setText("接收信息");
+					vLoading.setVisibility(View.INVISIBLE);
+				}else{
+					vReceiveState.setText(R.string.tip_receiving);
+					vReceive.setText("停止接收");
+					vLoading.setVisibility(View.VISIBLE);
+				}
+				//	接收的条目信息;
+				String pinfo=bundle.getString("info");
+				if(pinfo!=null){				
+					Log.i("MyLog", "接收="+pinfo);
+//					mtListRoom.addDatas(pinfo);
+					plist.add(pinfo);
+					showData();
+				}
+			}
 	}
 
-	@Override
-	protected void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
-//		if(broadcastReceiver!=null){			
-//			unregisterReceiver(broadcastReceiver);
-//		}
-		
+	private void showData(){
+//		plist=mtListRoom.getDatas();
+		mAdapter=new ArrayAdapter<String>(mContext, R.layout.act_item_line,R.id.content, plist);
+		vlvReceive.setAdapter(mAdapter);
 	}
 }

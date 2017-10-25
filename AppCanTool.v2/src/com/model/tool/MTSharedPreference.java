@@ -1,4 +1,4 @@
-package com.model;
+package com.model.tool;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -7,11 +7,11 @@ import android.content.SharedPreferences;
 
 //	首选项的相应内容操作
 @SuppressLint("CommitPrefEdits")
-public class SPHelper {
+public class MTSharedPreference {
 	private SharedPreferences sPreferences;
 	private SharedPreferences.Editor editor;
 	private Context mContext;
-	public SPHelper(Context context,String fName,int nMode){
+	public MTSharedPreference(Context context,String fName,int nMode){
 		mContext     = context;
 		sPreferences = mContext.getSharedPreferences(fName, nMode);
 		editor = sPreferences.edit();

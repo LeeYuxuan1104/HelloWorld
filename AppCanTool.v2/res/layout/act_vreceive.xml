@@ -74,8 +74,10 @@
 	    android:id="@+id/lvReceive"
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
+	    android:layout_marginLeft="10sp"
+	    android:layout_marginRight="10sp"
 	    android:layout_above="@id/includeBottom"
-	    android:layout_below="@id/includeTop"
+	    android:layout_below="@id/layTop"
 	    >
 	</ListView>
 </RelativeLayout>
