@@ -170,7 +170,7 @@ public class MTConfig {
 		private String sql_insert02_03=
 				"insert into can_signal " +
 				"('sg_flag','signal_name'      ,'way'	,'judge','rank','unit','node_name' ,'id') values " +
-				"('sg_'	   ,'cdu_hvacaircircfg','3|2@0+','1,0'  ,'0|3' ,'\"\"','hvac'		,61 )";
+				"('sg_'	   ,'cdu_hvaccomfortcfg','5|2@0+','1,0'  ,'0|3' ,'\"\"','hvac'		,61 )";
 ///////
 	private String sql_insert03=
 			"insert into can_message ('bo_flag','id','message_name','dlc','node_name') values ('bo_',1067,'cdu_nm',8,'cdu')";

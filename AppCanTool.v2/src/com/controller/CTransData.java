@@ -102,7 +102,7 @@ public class CTransData extends MEData{
 					}
 					scolum++;
 				}
-				for(int i=bcount;i>0;i--){
+				for(int i=bcount-1;i>0;i--){
 					tmp+=listData.get(i);
 				}
 				break;
