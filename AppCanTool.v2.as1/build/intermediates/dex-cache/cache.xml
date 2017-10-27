@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="F:\Codes\GitHub\HelloWorld\HelloWorld\AppCanTool.v2.as1\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="F:\Codes\GitHub\HelloWorld\HelloWorld\AppCanTool.v2.as1\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_6efca3913065019999d4e424d5cc9c3c385e83c4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Codes\GitHub\HelloWorld\HelloWorld\AppCanTool.v2.as1\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ca83f5441dc78373140427641193e80dcd2e2f2e">
+        <dex dex="F:\Codes\GitHub\HelloWorld\HelloWorld\AppCanTool.v2.as1\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f26eecc6918b7265137213117dfab9c999692940\classes.dex" />
+    </item>
+
+</items>

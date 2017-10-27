@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_tablebar.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_tablebar.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_item_send.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_item_send.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_vsend_detail.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_vsend_detail.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_topbar.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_topbar.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_item_line.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_item_line.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_item_treeview.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_item_treeview.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_bottombar.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_bottombar.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_item.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_item.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_vreceive.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_vreceive.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_itemtable.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_itemtable.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_vshow.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_vshow.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_item_manage.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_item_manage.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_vmanage.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_vmanage.xml"
+    },
+    {
+        "merged": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_vsend.xml",
+        "source": "F:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\src\\main\\res\\layout\\act_vsend.xml"
+    }
+]

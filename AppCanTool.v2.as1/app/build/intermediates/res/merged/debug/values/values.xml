@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="act_back">返回</string>
+    <string name="act_exit">退出</string>
+    <string name="act_export">导出</string>
+    <string name="act_manage">管理信息</string>
+    <string name="act_no">取消</string>
+    <string name="act_ok">确认</string>
+    <string name="act_received">停止接收</string>
+    <string name="act_receiving">接收信息</string>
+    <string name="act_send">发送信息</string>
+    <string name="act_show">显示信息</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">CanTool手机应用</string>
+    <string name="chn">Chn</string>
+    <string name="data">Data</string>
+    <string name="dir">Dir</string>
+    <string name="dlc">DLC</string>
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="time">Time</string>
+    <string name="tip_delall">清空</string>
+    <string name="tip_exit">退出</string>
+    <string name="tip_flush">刷新</string>
+    <string name="tip_manage">管理</string>
+    <string name="tip_receive">接收</string>
+    <string name="tip_received">接收中止!!</string>
+    <string name="tip_receiving">接收进行..</string>
+    <string name="tip_send">发送</string>
+    <string name="tip_show">显示</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

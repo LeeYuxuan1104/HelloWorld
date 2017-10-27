@@ -1,0 +1,7 @@
+#Wed Oct 25 18:51:49 CST 2017
+base.0=F\:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_6efca3913065019999d4e424d5cc9c3c385e83c4
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=F\:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_f26eecc6918b7265137213117dfab9c999692940\\classes.dex
+base.1=F\:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_f26eecc6918b7265137213117dfab9c999692940
+file.0=F\:\\Codes\\GitHub\\HelloWorld\\HelloWorld\\AppCanTool.v2.as1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_6efca3913065019999d4e424d5cc9c3c385e83c4\\classes.dex
