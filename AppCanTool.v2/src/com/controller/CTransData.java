@@ -37,7 +37,6 @@ public class CTransData extends MEData{
 	}
 
 	public void compute(){
-
 		//	ID编号;
 		String 	  ID16	=	meData.getID();
 		//	ID 16进制转化为10进制;
@@ -110,7 +109,6 @@ public class CTransData extends MEData{
 				break;
 			}
 			int v10=Integer.valueOf(tmp, 2);
-			
 			double Avalue=mSignal.getAvalue();
 			//	位数;
 			double Bvalue=mSignal.getBvalue();
@@ -128,7 +126,7 @@ public class CTransData extends MEData{
 
 	//	查询message大表中的id信息;
 	private ArrayList<MESignal> queryInfofromSignal(int id10){
-		ArrayList<MESignal>  listSignals	=new ArrayList<MESignal>();
+		ArrayList<MESignal> listSignals	=new ArrayList<MESignal>();
 		MEMessage  			mMessage	=null;
 		String				sql;
 		//	大类的sql语句;
@@ -183,6 +181,4 @@ public class CTransData extends MEData{
 		}
 		return bString;
 	}
-	
-	
 }

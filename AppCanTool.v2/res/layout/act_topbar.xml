@@ -43,5 +43,33 @@
         android:layout_toLeftOf="@id/btnLine"
         android:text="@string/act_compress"
         android:visibility="gone" />
-
+    <Button 
+        android:id="@+id/btnFlush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:text="@string/act_flush"
+        android:visibility="gone" 
+        />
+	<Button
+        android:id="@+id/btnRemote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:layout_toLeftOf="@id/btnFlush"
+        android:text="@string/act_remote"
+        android:visibility="gone" />
+	<Button
+        android:id="@+id/btnDelAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:layout_toLeftOf="@id/btnRemote"
+        android:text="@string/act_delall"
+        android:visibility="gone" />
+	
 </RelativeLayout>

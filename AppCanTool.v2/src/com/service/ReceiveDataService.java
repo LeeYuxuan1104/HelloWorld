@@ -127,7 +127,7 @@ public class ReceiveDataService extends Service {
 					// Message msg = new Message();
 					// 发送一个String的数据，让他向上转型为obj类型
 					String param = new String(buffer, 0, count, "utf-8");
-					Log.i("MyLog", "param="+param);
+//					Log.i("MyLog", "param="+param);
 					long l2 = System.currentTimeMillis();
 					// 发送数据
 					if(param!=null){					
@@ -229,7 +229,7 @@ public class ReceiveDataService extends Service {
 	}
 	//	数据插入库;
 	private void inputData(Context context, long l1,long l2,String chn,String dir,MEData meData){
-		Log.i("MyLog", "contenxt="+context);
+//		Log.i("MyLog", "contenxt="+context);
 		CInputDataBase cInputDataBase=new CInputDataBase(context);
 		cInputDataBase.inputMes(l1, l2, chn, dir, meData);
 		

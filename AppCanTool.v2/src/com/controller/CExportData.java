@@ -4,13 +4,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.model.tool.MTDBHelper;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Environment;
 
+@SuppressLint("SimpleDateFormat")
 public class CExportData {
 	private Context 			 context;
 	private FileOutputStream 	 fos;
@@ -103,11 +106,13 @@ public class CExportData {
 	}
 	
 	public void exportTable(ArrayList<String> list,String tablename,String format){
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置日期格式
+		long l=System.currentTimeMillis();
 		String content="";
 		for(String str:list){
 			String c=str.substring(0, str.lastIndexOf(","));
 			content+=c+"\r\n";
 		}
-		operFile(context, "tablefile", tablename, format, content);
+		operFile(context, "tablefile", tablename+df.format(l), format, content);
 	}
 }

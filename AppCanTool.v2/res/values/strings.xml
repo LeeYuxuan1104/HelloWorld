@@ -21,6 +21,9 @@
 	<string name="act_exit">退出</string>
 	<string name="act_compress">罗盘</string>
 	<string name="act_line">曲线</string>
+	<string name="act_flush">更新</string>
+	<string name="act_remote">同步</string>
+	<string name="act_delall">清空</string>
 	<!-- 标题显示 -->
 	<string name="tip_receive">接收</string>
 	<string name="tip_receiving">接收进行..</string>
@@ -33,6 +36,11 @@
 	<string name="tip_delall">清空</string>
 	<string name="tip_detail">详情</string>
 	<string name="tip_export_finished">导出完成</string>
+	<string name="tip_flush_finished">更新完成</string>
+	<string name="tip_remote_finished">同步完成</string>
+	<string name="tip_remote_failed">同步失败</string>
+	<string name="tip_dialog_done">完成</string>
+	<string name="tip_dialog_wait">进行</string>
 	<!-- 表单信息 -->
 	<string name="time">Time</string>
 	<string name="chn">Chn</string>

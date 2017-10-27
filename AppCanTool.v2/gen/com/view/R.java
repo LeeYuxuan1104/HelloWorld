@@ -28,18 +28,19 @@ public final class R {
         public static final int progress_pic=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f08002f;
+        public static final int action_settings=0x7f080031;
         public static final int btnBack=0x7f080017;
-        public static final int btnCode=0x7f08002b;
+        public static final int btnCode=0x7f08002d;
         public static final int btnCompress=0x7f080019;
         public static final int btnDelAll=0x7f080015;
-        public static final int btnExportCan=0x7f08001c;
-        public static final int btnExportInfo=0x7f08001f;
-        public static final int btnExportStruction=0x7f08001d;
+        public static final int btnExportCan=0x7f08001d;
+        public static final int btnExportInfo=0x7f080020;
+        public static final int btnExportStruction=0x7f08001e;
         public static final int btnFlush=0x7f080014;
         public static final int btnLine=0x7f080018;
         public static final int btnManage=0x7f080003;
         public static final int btnReceive=0x7f080000;
+        public static final int btnRemote=0x7f08001a;
         public static final int btnSend=0x7f080002;
         public static final int btnShow=0x7f080001;
         public static final int chn=0x7f08000f;
@@ -51,31 +52,32 @@ public final class R {
         public static final int disclosureImg=0x7f08000c;
         public static final int dlc=0x7f080012;
         public static final int id=0x7f080005;
-        public static final int includeBottom=0x7f080020;
-        public static final int includeTop=0x7f08001a;
+        public static final int includeBottom=0x7f080022;
+        public static final int includeTop=0x7f08001b;
         public static final int judge=0x7f08000a;
-        public static final int layBottom=0x7f08002a;
-        public static final int layTitle=0x7f08002e;
-        public static final int layTop=0x7f080021;
-        public static final int laybottom=0x7f08001b;
-        public static final int lvMessages=0x7f080028;
-        public static final int lvReceive=0x7f080026;
-        public static final int lvShow=0x7f08001e;
-        public static final int lvSignals=0x7f08002d;
+        public static final int layBottom=0x7f08002c;
+        public static final int layTitle=0x7f080030;
+        public static final int layTop=0x7f080023;
+        public static final int laybottom=0x7f08001c;
+        public static final int lvMessages=0x7f08002a;
+        public static final int lvReceive=0x7f080028;
+        public static final int lvShow=0x7f08001f;
+        public static final int lvSignals=0x7f08002f;
         public static final int name=0x7f080010;
-        public static final int pbLoading=0x7f080025;
+        public static final int pbLoading=0x7f080027;
         public static final int rank=0x7f08000b;
         public static final int signal_name=0x7f080007;
-        public static final int spDevices=0x7f080027;
+        public static final int spDevices=0x7f080029;
         public static final int time=0x7f08000e;
-        public static final int tvAddress=0x7f080029;
-        public static final int tvBTooth=0x7f080023;
-        public static final int tvCreate=0x7f08002c;
-        public static final int tvDevice=0x7f080022;
-        public static final int tvReceiveState=0x7f080024;
+        public static final int tvAddress=0x7f08002b;
+        public static final int tvBTooth=0x7f080025;
+        public static final int tvCreate=0x7f08002e;
+        public static final int tvDevice=0x7f080024;
+        public static final int tvReceiveState=0x7f080026;
         public static final int tvTopic=0x7f080016;
         public static final int value=0x7f080008;
         public static final int way=0x7f080009;
+        public static final int wvShow=0x7f080021;
     }
     public static final class layout {
         public static final int act_bottombar=0x7f030000;
@@ -103,10 +105,12 @@ public final class R {
         public static final int act_back=0x7f05000e;
         public static final int act_code=0x7f050006;
         public static final int act_compress=0x7f050010;
+        public static final int act_delall=0x7f050014;
         public static final int act_exit=0x7f05000f;
         public static final int act_exportcan=0x7f05000a;
         public static final int act_exportinfo=0x7f05000b;
         public static final int act_exportstruction=0x7f05000c;
+        public static final int act_flush=0x7f050012;
         public static final int act_format=0x7f05000d;
         public static final int act_line=0x7f050011;
         public static final int act_manage=0x7f050007;
@@ -116,32 +120,38 @@ public final class R {
         /**  底端按钮 
          */
         public static final int act_receiving=0x7f050002;
+        public static final int act_remote=0x7f050013;
         public static final int act_send=0x7f050005;
         public static final int act_show=0x7f050004;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int chn=0x7f05001e;
-        public static final int data=0x7f050023;
-        public static final int dir=0x7f050021;
-        public static final int dlc=0x7f050022;
-        public static final int id=0x7f05001f;
-        public static final int name=0x7f050020;
+        public static final int chn=0x7f050026;
+        public static final int data=0x7f05002b;
+        public static final int dir=0x7f050029;
+        public static final int dlc=0x7f05002a;
+        public static final int id=0x7f050027;
+        public static final int name=0x7f050028;
         /**  表单信息 
          */
-        public static final int time=0x7f05001d;
-        public static final int tip_delall=0x7f05001a;
-        public static final int tip_detail=0x7f05001b;
-        public static final int tip_exit=0x7f050018;
-        public static final int tip_export_finished=0x7f05001c;
-        public static final int tip_flush=0x7f050019;
-        public static final int tip_manage=0x7f050017;
+        public static final int time=0x7f050025;
+        public static final int tip_delall=0x7f05001d;
+        public static final int tip_detail=0x7f05001e;
+        public static final int tip_dialog_done=0x7f050023;
+        public static final int tip_dialog_wait=0x7f050024;
+        public static final int tip_exit=0x7f05001b;
+        public static final int tip_export_finished=0x7f05001f;
+        public static final int tip_flush=0x7f05001c;
+        public static final int tip_flush_finished=0x7f050020;
+        public static final int tip_manage=0x7f05001a;
         /**  标题显示 
          */
-        public static final int tip_receive=0x7f050012;
-        public static final int tip_received=0x7f050014;
-        public static final int tip_receiving=0x7f050013;
-        public static final int tip_send=0x7f050016;
-        public static final int tip_show=0x7f050015;
+        public static final int tip_receive=0x7f050015;
+        public static final int tip_received=0x7f050017;
+        public static final int tip_receiving=0x7f050016;
+        public static final int tip_remote_failed=0x7f050022;
+        public static final int tip_remote_finished=0x7f050021;
+        public static final int tip_send=0x7f050019;
+        public static final int tip_show=0x7f050018;
     }
     public static final class style {
         /** 

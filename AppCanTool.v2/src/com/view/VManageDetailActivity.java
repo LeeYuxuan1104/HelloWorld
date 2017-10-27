@@ -14,11 +14,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,17 +27,19 @@ public class VManageDetailActivity extends Activity implements OnClickListener{
 	private Context				 mContext;
 	private Button  			 vBack,vExportInfo;
 	private TextView			 vTopic;
-	private ListView			 vlvShow;
-	private ArrayAdapter<String> mAdapter;
 	private ArrayList<String> 	 list;
 	private String 				 tablename;
 	private MTDBHelper			 helper;
 	private CExportData			 cExportData;
 	private Builder				 mBuilder;
 	private Spinner				 spinner;
-	private ArrayAdapter<String> adapter;
+	
+	private ArrayAdapter<String> exAdapter;
 	private	String 				 format; 
 	private String[] 			 formats	=	{"csv","json","txt"};
+	private WebView				 wvShow;
+	private String				 pcontent;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,19 +49,19 @@ public class VManageDetailActivity extends Activity implements OnClickListener{
 	}
 	
 	private void initView(){
-		vBack=(Button) findViewById(R.id.btnBack);
-		vTopic=(TextView) findViewById(R.id.tvTopic);
-		vlvShow=(ListView) findViewById(R.id.lvShow);
-		vExportInfo=(Button) findViewById(R.id.btnExportInfo);
+		vBack	   =	(Button) findViewById(R.id.btnBack);
+		vTopic	   =	(TextView) findViewById(R.id.tvTopic);
+		vExportInfo=	(Button) findViewById(R.id.btnExportInfo);
+		wvShow	   =	(WebView) findViewById(R.id.wvShow);
 	}
 	
 	private void initEvent(){
-		mContext=VManageDetailActivity.this;
-		helper=new MTDBHelper(mContext);
-		cExportData=new CExportData(mContext, helper);
+		mContext	=	VManageDetailActivity.this;
+		helper		=	new MTDBHelper(mContext);
+		cExportData	=	new CExportData(mContext, helper);
+		
 		//	设置初始值;
 		vBack.setText(R.string.act_back);
-		vTopic.setText(R.string.tip_detail);
 		
 		vBack.setOnClickListener(this);
 		vExportInfo.setOnClickListener(this);
@@ -69,12 +71,11 @@ public class VManageDetailActivity extends Activity implements OnClickListener{
 		String id		=	bundle.getString("id");
 		String column	=	bundle.getString("column");
 		tablename		=	bundle.getString("table");
+		vTopic.setText(tablename+" 详情");
 		int    ncolumn	=	Integer.parseInt(column);
-		list=loadData(id, ncolumn);
-		
-		mAdapter=new ArrayAdapter<String>(mContext,R.layout.act_item_line,R.id.content, list);
-		
-		vlvShow.setAdapter(mAdapter);
+		list			=	loadData(id, ncolumn);
+		wvShow.getSettings().setDefaultTextEncodingName("utf-8") ;
+		wvShow.loadDataWithBaseURL(null, pcontent, "text/html", "utf-8", null);
 	}
 
 	private ArrayList<String> loadData(String id,int ncolumn){
@@ -82,23 +83,36 @@ public class VManageDetailActivity extends Activity implements OnClickListener{
 		String sql="select * from can_signal where id="+id;
 		ArrayList<String[]> datastitle=helper.query(sql);
 		String item="";
+		pcontent="<html>" +
+					"<head> " +
+					"</head>" +
+					"<body>" +
+						"<table border=\"1\">" +
+						"<tr>";
 		for(String[] items:datastitle){
 			item+=items[2]+",";
+			pcontent+="<th bgcolor=\"#00FF00\" align=\"center\">"+items[2]+"</th>";
 		}
+		pcontent+="</tr><tr>";
 		list.add(item);
 		sql="select * from signalinfo where id="+id;
 		ArrayList<String[]> datascontent=helper.query(sql);
 		int index=1;
 		String tmp="";
+		
 		for(String[] items:datascontent){
 			 tmp+=items[2]+items[3]+",";
+			 pcontent+="<td align=\"center\">"+items[2]+items[3]+"</td>";
 			index++;
 			if(index>ncolumn){
 				list.add(tmp);
 				tmp="";
+				pcontent+="</tr><tr>";
 				index=1;
 			}
 		}
+		
+		pcontent+="</tr></table></body></html>";
 		return list;
 	}
 	
@@ -114,9 +128,9 @@ public class VManageDetailActivity extends Activity implements OnClickListener{
 			mBuilder = new AlertDialog.Builder(mContext);
 			mBuilder.setTitle(R.string.act_format);
 			spinner  = new Spinner(mContext);
-			adapter  = new ArrayAdapter<String>(mContext,R.layout.act_item_line,R.id.content, formats);
+			exAdapter  = new ArrayAdapter<String>(mContext,R.layout.act_item_line,R.id.content, formats);
 			
-			spinner.setAdapter(adapter);
+			spinner.setAdapter(exAdapter);
 			
 			spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
