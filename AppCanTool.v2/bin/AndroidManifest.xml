@@ -28,7 +28,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon1"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
@@ -74,6 +74,13 @@
         <activity
             android:name="com.view.VSendDetailActivity"
             android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.view.VSignalDBActivity"
+            android:theme="@android:style/Theme.NoTitleBar" 
+            android:launchMode="singleTask" 
+            android:screenOrientation="landscape"
+        >
         </activity>
         <!-- 注册服务包 :需要把相应的内容信息写清楚:包名称-->
         <service android:name="com.service.ReceiveDataService" >

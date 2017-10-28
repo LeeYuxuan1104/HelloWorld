@@ -3,7 +3,7 @@ package com.view;
 import java.util.ArrayList;
 import com.controller.CExportData;
 import com.model.entity.MEElement;
-import com.model.tool.MGetOrPostHelper;
+import com.model.tool.MTGetOrPostHelper;
 import com.model.tool.MTDBHelper;
 import com.model.tool.MTTreeViewAdapter;
 import com.model.tool.MTTreeViewItemClickListener;
@@ -11,6 +11,7 @@ import com.model.tool.MTTreeViewItemClickListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,6 +30,7 @@ import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 
 public class VManageActivity extends Activity implements OnClickListener{
 	/*上下文声明*/
@@ -36,7 +38,7 @@ public class VManageActivity extends Activity implements OnClickListener{
 	/*控件的声明*/
 	private TextView 			 vTopic;
 	//	返回键;
-	private Button 	 			 vBack,vExportCan,vExportStruction,vFlush,vRemote,vDelAll;
+	private Button 	 			 vBack,vExportCan,vExportStruction,vFlush,vRemote,vDelAll,vSignalDB;
 	//	显示列表;
 	private ListView 			 vlvShow;
 	//	声明的控件;	
@@ -75,6 +77,8 @@ public class VManageActivity extends Activity implements OnClickListener{
 		vFlush			=(Button) findViewById(R.id.btnFlush);
 		vRemote			=(Button) findViewById(R.id.btnRemote);
 		vDelAll			=(Button) findViewById(R.id.btnDelAll);
+		
+		vSignalDB		=(Button) findViewById(R.id.btnSignalDB);
 	}
 	//	初始化方法;
 	private void initEvent(){
@@ -101,6 +105,7 @@ public class VManageActivity extends Activity implements OnClickListener{
 		vFlush.setOnClickListener(this);
 		vRemote.setOnClickListener(this);
 		vDelAll.setOnClickListener(this);
+		vSignalDB.setOnClickListener(this);
 		//	进行数据显示;
 		showData();
 	}
@@ -114,7 +119,11 @@ public class VManageActivity extends Activity implements OnClickListener{
 		vlvShow.setAdapter(mTreeViewAdapter);
 		vlvShow.setOnItemClickListener(mTreeViewItemClickListener);
 	}
-
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("MyLog", "chong");
+	}
 	private void initTreeView() {
 		elements = new ArrayList<MEElement>();
 		elementsData = new ArrayList<MEElement>();
@@ -277,6 +286,11 @@ public class VManageActivity extends Activity implements OnClickListener{
 			vBuilder.create();
 			vBuilder.show();
 			break;
+		case R.id.btnSignalDB:
+			Intent intent=new Intent(mContext, VSignalDBActivity.class);
+			startActivity(intent);
+			finish();
+			break;
 		default:
 			break;
 		}
@@ -310,10 +324,10 @@ public class VManageActivity extends Activity implements OnClickListener{
 	public class MyThread extends Thread {
 		private String url, param, response;
 		private ArrayList<String[]> list;
-		private MGetOrPostHelper mGetOrPostHelper;
+		private MTGetOrPostHelper mGetOrPostHelper;
 		public MyThread(ArrayList<String[]> list) {
 			this.list=list;
-			this.mGetOrPostHelper=new MGetOrPostHelper();
+			this.mGetOrPostHelper=new MTGetOrPostHelper();
 		}
 		
 		@Override

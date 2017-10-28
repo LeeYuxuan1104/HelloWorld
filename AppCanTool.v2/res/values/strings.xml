@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CanTool手机应用</string>
+    <string name="app_name">CanTool</string>
     <string name="action_settings">Settings</string>
     <!-- 底端按钮 -->
 	<string name="act_receiving">接收信息</string>
@@ -15,6 +15,7 @@
 	<string name="act_exportcan">导出CAN信息</string>
 	<string name="act_exportinfo">导出表信息</string>
 	<string name="act_exportstruction">导出表结构信息</string>
+	<string name="act_signinfo">信号库信息</string>
 	<string name="act_format">选择格式</string>
 	<!-- 顶端按钮 -->
 	<string name="act_back">返回</string>
@@ -39,8 +40,14 @@
 	<string name="tip_flush_finished">更新完成</string>
 	<string name="tip_remote_finished">同步完成</string>
 	<string name="tip_remote_failed">同步失败</string>
+	<string name="tip_readdb_finished">导库完成</string>
+	<string name="tip_readdb_failed">导库失败</string>
 	<string name="tip_dialog_done">完成</string>
 	<string name="tip_dialog_wait">进行</string>
+	<string name="tip_cleardb">清库结构</string>
+	<string name="tip_importdb">导库结构</string>
+	<string name="tip_dbmanage">库信息管理</string>
+	<string name="tip_filelist">文件列表</string>
 	<!-- 表单信息 -->
 	<string name="time">Time</string>
 	<string name="chn">Chn</string>

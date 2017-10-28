@@ -6,10 +6,11 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 import com.controller.CAnalData;
-import com.controller.CInputDataBase;
+import com.controller.CImportData;
 import com.controller.CTransData;
 import com.model.entity.MEData;
 import com.model.tool.MTBlueTooth;
+import com.model.tool.MTDBHelper;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
@@ -38,6 +39,7 @@ public class ReceiveDataService extends Service {
 	private String   		 	 pTargetFromService="com.from.service.to.activity";
 	private GetBroadCastReceiver getBroadCastReceiver;
 	private IntentFilter 	 	 filter;
+	private MTDBHelper			 mHelper;
 	
 	public IBinder onBind(Intent intent) {
 		return null;
@@ -50,6 +52,7 @@ public class ReceiveDataService extends Service {
 		mBlueTooth 	 = new MTBlueTooth();
 		//	蓝牙适配器的获取;
 		adapter		 = mBlueTooth.getmBluetoothAdapter();
+		mHelper		 = new MTDBHelper(mContext);
 		//	发送包的内容;
 		getBroadCastReceiver=new GetBroadCastReceiver();
 		filter 		 = new IntentFilter();
@@ -229,16 +232,14 @@ public class ReceiveDataService extends Service {
 	}
 	//	数据插入库;
 	private void inputData(Context context, long l1,long l2,String chn,String dir,MEData meData){
-//		Log.i("MyLog", "contenxt="+context);
-		CInputDataBase cInputDataBase=new CInputDataBase(context);
-		cInputDataBase.inputMes(l1, l2, chn, dir, meData);
-		
+		CImportData 		cInputData	=	new CImportData(context,mHelper);
+		cInputData.inputDataBase_Mes(l1, l2, chn, dir, meData);
 	}
 	
 	//	数据转码;
 	private MEData	transData(Context context, MEData meData){
 		
-		CTransData cTransData=new CTransData(context);
+		CTransData cTransData=new CTransData(context,mHelper);
 		cTransData.setmData(meData);
 		cTransData.compute();
 				

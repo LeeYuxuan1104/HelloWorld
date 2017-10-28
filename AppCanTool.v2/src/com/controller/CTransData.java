@@ -23,9 +23,9 @@ public class CTransData extends MEData{
 	private ArrayList<MESignal>  listSignals;
 	
 
-	public CTransData(Context context) {
+	public CTransData(Context context,MTDBHelper mhelper) {
 		//	数据库控制类;
-		this.mdbHelper	=   new  MTDBHelper(context);
+		this.mdbHelper	=   mhelper;
 	}
 	
 	public MEData getmData() {
@@ -81,7 +81,7 @@ public class CTransData extends MEData{
 					listData.add(value);
 					if(scolum==0){
 						sline=sline+1;
-						scolum=7;
+						scolum=8;
 					}
 					scolum--;
 				}
@@ -97,7 +97,7 @@ public class CTransData extends MEData{
 					listData.add(value);
 					if(scolum==7){
 						sline=sline+1;
-						scolum=0;
+						scolum=-1;
 					}
 					scolum++;
 				}

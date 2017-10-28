@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class MGetOrPostHelper {
+public class MTGetOrPostHelper {
 	/**
 	 *	跟网络请求有关的方法;
 	 *其中主要包括的方法有:
@@ -13,7 +13,7 @@ public class MGetOrPostHelper {
 	 */
 	public static int NTIMEOUT=6000;
 	
-	public MGetOrPostHelper() {
+	public MTGetOrPostHelper() {
 	
 	}
 	//	Get进行内容发送get方法和post方法;

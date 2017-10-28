@@ -38,6 +38,14 @@
             android:layout_marginTop="5sp"
             android:layout_weight="1"
             android:text="@string/act_exportstruction" />
+        <Button
+            android:id="@+id/btnSignalDB"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
+            android:layout_weight="1"
+            android:text="@string/act_signinfo" />
     </LinearLayout>
 
     <ListView

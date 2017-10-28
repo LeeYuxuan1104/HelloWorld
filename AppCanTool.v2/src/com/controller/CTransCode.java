@@ -54,7 +54,7 @@ public class CTransCode {
 					map.put(index, tmp);		
 					if(scolum==0){
 						sline=sline+1;
-						scolum=7;
+						scolum=8;
 					}
 					scolum--;
 				}
@@ -67,7 +67,7 @@ public class CTransCode {
 					map.put(index, tmp);
 					if(scolum==7){
 						sline=sline+1;
-						scolum=0;
+						scolum=-1;
 					}
 					scolum++;
 				}
