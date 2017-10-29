@@ -34,6 +34,8 @@
 	<string name="tip_manage">管理</string>
 	<string name="tip_exit">退出</string>
 	<string name="tip_flush">刷新</string>
+	<string name="tip_auto">自动</string>
+	<string name="tip_hand">手动</string>
 	<string name="tip_delall">清空</string>
 	<string name="tip_detail">详情</string>
 	<string name="tip_export_finished">导出完成</string>
@@ -48,6 +50,7 @@
 	<string name="tip_importdb">导库结构</string>
 	<string name="tip_dbmanage">库信息管理</string>
 	<string name="tip_filelist">文件列表</string>
+	<string name="tip_choose">请选择</string>
 	<!-- 表单信息 -->
 	<string name="time">Time</string>
 	<string name="chn">Chn</string>

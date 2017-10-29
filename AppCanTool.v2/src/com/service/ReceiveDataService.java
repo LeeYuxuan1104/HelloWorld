@@ -22,7 +22,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.util.Log;
 
 public class ReceiveDataService extends Service {
 	private Context				 mContext;
@@ -83,7 +82,7 @@ public class ReceiveDataService extends Service {
 				} catch (InterruptedException e) {
 
 				}
-				Log.i("MyLog", "Count is" + count);
+//				Log.i("MyLog", "Count is" + count);
 			}
 		}
 	}

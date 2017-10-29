@@ -6,7 +6,6 @@ import com.model.tool.MTBlueTooth;
 import com.service.ReceiveDataService;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -228,8 +227,8 @@ public class VReceiveActivity extends Activity implements OnClickListener{
 				//	接收的条目信息;
 				String pinfo=bundle.getString("info");
 				if(pinfo!=null){				
-					Log.i("MyLog", "接收="+pinfo);
-//					mtListRoom.addDatas(pinfo);
+//					Log.i("MyLog", "接收="+pinfo);
+////					mtListRoom.addDatas(pinfo);
 					plist.add(pinfo);
 					showData();
 				}
@@ -238,6 +237,10 @@ public class VReceiveActivity extends Activity implements OnClickListener{
 
 	private void showData(){
 //		plist=mtListRoom.getDatas();
+		int size=plist.size();
+		if(size>20){
+			plist.clear();
+		}
 		mAdapter=new ArrayAdapter<String>(mContext, R.layout.act_item_line,R.id.content, plist);
 		vlvReceive.setAdapter(mAdapter);
 	}

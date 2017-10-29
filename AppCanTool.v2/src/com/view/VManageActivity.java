@@ -11,7 +11,6 @@ import com.model.tool.MTTreeViewItemClickListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -122,7 +121,7 @@ public class VManageActivity extends Activity implements OnClickListener{
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Log.i("MyLog", "chong");
+//		Log.i("MyLog", "chong");
 	}
 	private void initTreeView() {
 		elements = new ArrayList<MEElement>();

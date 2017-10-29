@@ -43,6 +43,16 @@
         android:layout_toLeftOf="@id/btnLine"
         android:text="@string/act_compress"
         android:visibility="gone" />
+    <Spinner 
+        android:id="@+id/spMessage"
+		android:layout_width="100sp"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+		android:layout_toLeftOf="@id/btnCompress"  
+		android:layout_toRightOf="@id/tvTopic"
+		android:visibility="gone"      
+        />
     <Button 
         android:id="@+id/btnFlush"
         android:layout_width="wrap_content"

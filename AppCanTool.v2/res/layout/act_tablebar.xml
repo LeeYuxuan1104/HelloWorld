@@ -7,14 +7,21 @@
     android:orientation="horizontal" >
 
     <Button
-        android:id="@+id/btnFlush"
+        android:id="@+id/btnFlushShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:text="@string/tip_flush"
         tools:ignore="InefficientWeight" />
+    <Button 
+        android:id="@+id/btnMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:text="@string/tip_auto"
+        />
 	<Button 
-	    android:id="@+id/btnDelAll"
+	    android:id="@+id/btnDelallShow"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_weight="1"

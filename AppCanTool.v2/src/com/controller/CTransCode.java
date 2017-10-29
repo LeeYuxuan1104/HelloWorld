@@ -174,7 +174,7 @@ public class CTransCode {
 		char[] 	chs		=param.toCharArray();
 		int 	length	=chs.length;
 		int 	count	=0;
-		for(int i=length-1;i>0;i--){
+		for(int i=length-1;i>=0;i--){
 			char c=chs[i];
 			if(c!='0'){
 				break;

@@ -50,7 +50,6 @@ public class VSignalDBActivity extends Activity implements OnClickListener{
 	private CGetDataColor 		 cGetDataColor;
 	private MyThread			 myThread;
 	private CImportData			 cImportData;
-//	private C			
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

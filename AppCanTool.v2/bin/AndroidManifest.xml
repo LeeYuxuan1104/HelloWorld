@@ -82,6 +82,20 @@
             android:screenOrientation="landscape"
         >
         </activity>
+        <activity
+            android:name="com.view.VCompressActivity"
+            android:theme="@android:style/Theme.NoTitleBar" 
+            android:launchMode="singleTask" 
+            android:screenOrientation="landscape"
+        >
+        </activity>
+         <activity
+            android:name="com.view.VDrawLineActivity"
+            android:theme="@android:style/Theme.NoTitleBar" 
+            android:launchMode="singleTask" 
+            android:screenOrientation="landscape"
+        >
+        </activity>
         <!-- 注册服务包 :需要把相应的内容信息写清楚:包名称-->
         <service android:name="com.service.ReceiveDataService" >
         </service>

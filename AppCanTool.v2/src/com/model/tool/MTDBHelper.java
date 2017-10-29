@@ -26,6 +26,12 @@ public class MTDBHelper {
 	public void oper(String sql){
 		mDB.execSQL(sql);
 	}
+	//	TODO 数据库的关闭;
+	public void closedb(){
+		if(mDB!=null){			
+			mDB.close();
+		}
+	}
 	//	查询结果;
 	public ArrayList<String[]> query(String sql){
 		column=0;
@@ -43,6 +49,8 @@ public class MTDBHelper {
 		}
 		if(mCursor!=null){
 			mCursor.close();
+			//TODO 数据库的查询关闭;
+			mCursor=null;
 		}
 		return list;
 	}
