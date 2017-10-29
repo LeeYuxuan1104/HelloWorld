@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+    <!-- 顶端布局 -->
+
+    <include
+        android:id="@+id/includeTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/act_topbar" />
+    <!-- 底端的布局 -->
+
+    <TableLayout
+        android:id="@+id/layTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/includeTop" 
+        android:background="#ff0000"
+        >
+        <TableRow tools:ignore="UselessParent">
+            <TextView
+                android:layout_column="0"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_weight="1"
+                android:padding="3dip"
+                android:text="@string/time" 
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_weight="1"
+                android:padding="3dip"
+                android:text="@string/chn" 
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_column="2"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_weight="2"
+                android:padding="3dip"
+                android:text="@string/id" 
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_column="3"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_weight="2"
+                android:padding="3dip"
+                android:text="@string/name" 
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_column="4"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_weight="1"
+                android:padding="3dip"
+                android:text="@string/dir" 
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_column="5"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_weight="1"
+                android:padding="3dip"
+                android:text="@string/dlc" 
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_column="6"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+				android:layout_weight="2"
+                android:padding="3dip"
+                android:text="@string/data" 
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+        </TableRow>
+    </TableLayout>
+    <include
+        android:id="@+id/includeBottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/act_tablebar" />
+    <!-- 底端的布局 -->
+    <ListView
+        android:id="@+id/lvShow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_below="@id/layTitle"
+        android:layout_above="@id/includeBottom"
+        android:divider="#000000"
+        >
+    </ListView>
+</RelativeLayout>

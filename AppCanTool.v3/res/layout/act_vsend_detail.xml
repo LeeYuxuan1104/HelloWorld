@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#4A708B" >
+
+    <!-- 顶端布局 -->
+
+    <include
+        android:id="@+id/includeTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/act_topbar" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="fill_parent"
+        android:layout_height="30sp"
+        android:layout_below="@id/includeTop"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/layBottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/act_code" />
+		<LinearLayout 
+		    android:id="@+id/l1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+            android:layout_weight="12"
+		    android:orientation="horizontal" 
+		    >
+		<EditText 
+		    android:id="@+id/etTime"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="2"
+		    android:inputType="number"
+		    />		    
+        <EditText
+            android:id="@+id/etCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:enabled="false"
+            android:gravity="center"
+            android:inputType="text"
+            android:textColor="#000000"
+            tools:ignore="Deprecated" />
+		    
+		</LinearLayout>
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/act_send" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvSignals"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/layBottom"
+        android:layout_below="@id/tvAddress"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"
+        android:cacheColorHint="#4A708B"
+        android:divider="#000000" >
+    </ListView>
+
+</RelativeLayout>
