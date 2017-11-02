@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#4A708B" >
+
+    <include
+        android:id="@+id/includeTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/act_topbar" />
+
+    <LinearLayout
+        android:id="@+id/layBottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnClearDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/tip_cleardb" />
+
+        <Button
+            android:id="@+id/btnImportDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/tip_importdb" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layMid"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/layBottom"
+        android:layout_below="@id/includeTop" >
+
+        <LinearLayout
+            android:id="@+id/l"
+            android:layout_width="200sp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical" >
+			<TextView 
+			    android:id="@+id/tvTip"
+			    android:layout_width="200sp"
+			    android:layout_height="30sp"
+			    android:textColor="#000000"
+			    android:gravity="center"
+			    android:textSize="20sp"
+			    android:textStyle="bold"
+			    android:text="@string/tip_filelist"
+			    android:visibility="gone"
+			    />
+            <ListView
+                android:id="@+id/lvMessage"
+                android:layout_width="200sp"
+                android:layout_height="fill_parent"
+                android:cacheColorHint="#4A708B"
+                android:divider="#000000" >
+            </ListView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSignalLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/l"
+            android:visibility="gone" />
+
+        <WebView
+            android:id="@+id/wvSignalLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/l" />
+    </RelativeLayout>
+
+</RelativeLayout>

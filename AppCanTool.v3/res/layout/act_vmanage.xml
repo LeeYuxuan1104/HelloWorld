@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+    <!-- 顶端布局 -->
+
+    <include
+        android:id="@+id/includeTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/act_topbar" />
+
+    <LinearLayout
+        android:id="@+id/laybottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#D1EEEE"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnExportCan"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
+            android:layout_weight="1"
+            android:text="@string/act_exportcan" />
+
+        <Button
+            android:id="@+id/btnExportStruction"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
+            android:layout_weight="1"
+            android:text="@string/act_exportstruction" />
+        <Button
+            android:id="@+id/btnSignalDB"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
+            android:layout_weight="1"
+            android:text="@string/act_signinfo" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvShow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/laybottom"
+        android:layout_below="@id/includeTop"
+        android:cacheColorHint="#000000"
+        android:divider="#000000" />
+
+</RelativeLayout>

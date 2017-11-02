@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#D1EEEE" >
+
+    <TextView
+        android:id="@+id/tvTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:text="@string/act_exit" />
+
+    <Button
+        android:id="@+id/btnLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:text="@string/act_line"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnCompress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:layout_toLeftOf="@id/btnLine"
+        android:text="@string/act_compress"
+        android:visibility="gone" />
+    <Spinner 
+        android:id="@+id/spMessage"
+		android:layout_width="100sp"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+		android:layout_toLeftOf="@id/btnCompress"  
+		android:layout_toRightOf="@id/tvTopic"
+		android:visibility="gone"      
+        />
+    <Button 
+        android:id="@+id/btnFlush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:text="@string/act_flush"
+        android:visibility="gone" 
+        />
+	<Button
+        android:id="@+id/btnRemote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:layout_toLeftOf="@id/btnFlush"
+        android:text="@string/act_remote"
+        android:visibility="gone" />
+	<Button
+        android:id="@+id/btnDelAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:layout_toLeftOf="@id/btnRemote"
+        android:text="@string/act_delall"
+        android:visibility="gone" />
+	
+</RelativeLayout>
