@@ -1,0 +1,32 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="#ffffff"
+    >
+
+    <!-- 顶端布局 -->
+
+    <include
+        android:id="@+id/includeTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/act_topbar" />
+    <Spinner 
+        android:id="@+id/spDevices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/includeTop"
+        />
+    <ListView 
+        android:id="@+id/lvMessages"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/spDevices"
+        android:cacheColorHint="#ffffff"
+        android:divider="#000000"
+        >
+    </ListView>
+</RelativeLayout>

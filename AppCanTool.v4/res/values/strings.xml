@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CanTool</string>
+    <string name="action_settings">Settings</string>
+    <!-- 底端按钮 -->
+	<string name="act_receiving">接收信息</string>
+	<string name="act_received">停止接收</string>
+	<string name="act_show">显示信息</string>
+	<string name="act_send">发送</string>
+	<string name="act_code">编码</string>
+	<string name="act_manage">管理信息</string>
+	<string name="act_ok">确认</string>
+	<string name="act_no">取消</string>
+	<string name="act_exportcan">导出CAN信息</string>
+	<string name="act_exportinfo">导出表信息</string>
+	<string name="act_exportstruction">导出表结构信息</string>
+	<string name="act_signinfo">信号库信息</string>
+	<string name="act_format">选择格式</string>
+	<!-- 顶端按钮 -->
+	<string name="act_back">返回</string>
+	<string name="act_exit">退出</string>
+	<string name="act_compress">罗盘</string>
+	<string name="act_line">曲线</string>
+	<string name="act_flush">更新</string>
+	<string name="act_remote">同步</string>
+	<string name="act_delall">清空</string>
+	<!-- 标题显示 -->
+	<string name="tip_receive">接收</string>
+	<string name="tip_receiving">接收进行..</string>
+	<string name="tip_received">接收中止!!</string>
+	<string name="tip_show">显示</string>
+	<string name="tip_send">发送</string>
+	<string name="tip_manage">管理</string>
+	<string name="tip_exit">退出</string>
+	<string name="tip_flush">刷新</string>
+	<string name="tip_auto">自动</string>
+	<string name="tip_hand">手动</string>
+	<string name="tip_delall">清空</string>
+	<string name="tip_detail">详情</string>
+	<string name="tip_export_finished">导出完成</string>
+	<string name="tip_flush_finished">更新完成</string>
+	<string name="tip_remote_finished">同步完成</string>
+	<string name="tip_remote_failed">同步失败</string>
+	<string name="tip_readdb_finished">导库完成</string>
+	<string name="tip_readdb_failed">导库失败</string>
+	<string name="tip_dialog_done">完成</string>
+	<string name="tip_dialog_wait">进行</string>
+	<string name="tip_cleardb">清库结构</string>
+	<string name="tip_importdb">导库结构</string>
+	<string name="tip_dbmanage">库信息管理</string>
+	<string name="tip_filelist">文件列表</string>
+	<string name="tip_choose">请选择</string>
+	<string name="tip_time">时间</string>
+	<!-- 表单信息 -->
+	<string name="time">Time</string>
+	<string name="chn">Chn</string>
+	<string name="id">ID</string>
+	<string name="name">Name</string>
+	<string name="dir">Dir</string>
+	<string name="dlc">DLC</string>
+	<string name="data">Data</string>
+</resources>

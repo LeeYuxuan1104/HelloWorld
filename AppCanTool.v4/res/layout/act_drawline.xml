@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+    <include
+        android:id="@+id/includeTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/act_topbar" />
+
+    <LinearLayout
+        android:id="@+id/layBottom"
+        android:layout_width="fill_parent"
+        android:layout_height="200sp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <Spinner
+            android:id="@+id/spDrawLines"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <TextView 
+            android:id="@+id/tvResult"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layRoot"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/layBottom"
+        android:layout_below="@id/includeTop"
+        android:background="#4A708B"
+        tools:ignore="Orientation" >
+    </LinearLayout>
+
+</RelativeLayout>
